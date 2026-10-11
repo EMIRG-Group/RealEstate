@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canadian Real Estate Dashboard — October 2026</title>
+<style>
+:root{
+  --paper:#E7EBEC;
+  --field:#DDE3E4;
+  --surface:#F7F9F9;
+  --ink:#16272E;
+  --graphite:#5D7079;
+  --mute:#8B9BA1;
+  --rule:#C2CDD1;
+  --rule-soft:#D6DEE0;
+  --spruce:#1E6B58;
+  --steel:#2C5C8F;
+  --amber:#B0791F;
+  --clay:#A03A2E;
+  --sans:"Helvetica Neue",Helvetica,Inter,"Segoe UI",system-ui,Arial,sans-serif;
+  --narrow:"Helvetica Neue Condensed","Arial Narrow",var(--sans);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.55;
+  background-image:linear-gradient(var(--rule-soft) 1px,transparent 1px),linear-gradient(90deg,var(--rule-soft) 1px,transparent 1px);
+  background-size:56px 56px;background-position:-1px -1px;
+}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+p{margin:0 0 .8em}
+a{color:var(--steel)}
+.num{font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* ---------- shell ---------- */
+.wrap{max-width:1220px;margin:0 auto;padding:0 20px}
+.masthead{border-bottom:1px solid var(--ink);padding:26px 0 18px;margin-bottom:0}
+.masthead .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+.title{font-size:clamp(27px,4.4vw,44px);font-weight:650;letter-spacing:-.035em;max-width:23ch}
+.stamp{font-size:12.5px;color:var(--graphite);text-align:right;line-height:1.7}
+.stamp b{color:var(--ink);font-weight:600}
+
+/* nav rail */
+.layout{display:grid;grid-template-columns:172px minmax(0,1fr);gap:34px;align-items:start;padding-top:0}
+nav.rail{position:sticky;top:0;padding:26px 0 40px;z-index:20}
+nav.rail ol{list-style:none;margin:0;padding:0}
+nav.rail li{margin:0}
+nav.rail a{
+  display:block;padding:7px 10px 7px 12px;border-left:2px solid var(--rule);
+  color:var(--graphite);text-decoration:none;font-size:13.5px;
+}
+nav.rail a:hover{color:var(--ink);border-left-color:var(--graphite);background:rgba(255,255,255,.45)}
+nav.rail a.on{color:var(--ink);border-left-color:var(--ink);font-weight:600;background:rgba(255,255,255,.7)}
+nav.rail .vintage{display:block;font-size:11px;color:var(--mute);font-weight:400;letter-spacing:0}
+
+/* sections */
+section{padding:40px 0 18px;scroll-margin-top:14px}
+section+section{border-top:1px solid var(--rule)}
+.sechead{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;margin-bottom:6px}
+.sechead h2{font-size:clamp(20px,2.6vw,27px)}
+.sechead .asof{font-size:12.5px;color:var(--graphite)}
+.lede{max-width:74ch;color:var(--graphite);font-size:15px;margin-bottom:22px}
+.lede b{color:var(--ink);font-weight:600}
+h3.sub{font-size:16px;margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+h4.mini{font-size:13.5px;color:var(--graphite);font-weight:600;margin-bottom:8px}
+
+/* ---------- hero balance meters ---------- */
+.hero{padding:30px 0 6px}
+.meters{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0;border:1px solid var(--ink);background:var(--surface)}
+.meter{padding:18px 18px 16px;border-right:1px solid var(--rule)}
+.meter:last-child{border-right:0}
+.meter .mname{font-size:14px;font-weight:600;margin-bottom:2px}
+.meter .mval{font-size:12.5px;color:var(--graphite);min-height:2.6em}
+.scale{position:relative;height:30px;margin:12px 0 6px}
+.scale .track{position:absolute;top:13px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--steel),var(--rule),var(--clay))}
+.scale .band{position:absolute;top:9px;height:11px;width:1px;background:var(--graphite);opacity:.5}
+.scale .pin{position:absolute;top:2px;width:2px;height:25px;background:var(--ink)}
+.scale .pin::after{content:"";position:absolute;left:-4px;top:-4px;width:10px;height:10px;background:var(--ink);border-radius:50%}
+.scale .ghost{position:absolute;top:6px;width:2px;height:17px;background:var(--mute)}
+.mends{display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}
+.mnote{font-size:12px;color:var(--graphite);margin-top:8px;border-top:1px solid var(--rule-soft);padding-top:7px}
+.mnote .dir{font-weight:600}
+.up{color:var(--spruce)} .down{color:var(--clay)} .flat{color:var(--graphite)}
+
+/* ---------- stat strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 0}
+.strip.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.strip.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cell{background:var(--surface);padding:13px 14px 12px}
+.cell .k{font-size:12px;color:var(--graphite);margin-bottom:3px}
+.cell .v{font-family:var(--narrow);font-size:27px;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.1}
+.cell .d{font-size:12px;margin-top:2px}
+
+/* ---------- generic blocks ---------- */
+.cols{display:grid;gap:22px}
+.cols.two{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.cols.three{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+.panel{background:var(--surface);border:1px solid var(--rule);padding:16px 17px}
+.panel.plain{background:transparent;border:0;padding:0}
+.panel h4{font-size:14.5px;margin-bottom:4px}
+.panel p{font-size:13.5px;color:var(--graphite)}
+.panel p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border:1px solid var(--rule);color:var(--graphite);background:var(--paper);margin-bottom:8px}
+.tag.res{border-color:var(--spruce);color:var(--spruce)}
+.tag.com{border-color:var(--steel);color:var(--steel)}
+.tag.watch{border-color:var(--amber);color:var(--amber)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+caption{text-align:left;font-size:12.5px;color:var(--graphite);padding-bottom:7px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--rule-soft);text-align:right}
+th:first-child,td:first-child{text-align:left}
+thead th{border-bottom:1px solid var(--ink);font-weight:600;font-size:12.5px;color:var(--ink);white-space:nowrap}
+tbody tr:hover{background:rgba(255,255,255,.7)}
+td.n{font-variant-numeric:tabular-nums}
+.tbl-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);padding:14px 15px}
+
+/* ranked bars */
+.ranks{display:grid;gap:7px}
+.rank{display:grid;grid-template-columns:118px minmax(0,1fr) 76px;gap:10px;align-items:center;font-size:13px}
+.rank .bar{height:15px;background:var(--rule);position:relative}
+.rank .bar i{display:block;height:100%;background:var(--steel)}
+.rank .bar i.g{background:var(--spruce)}
+.rank .bar i.a{background:var(--amber)}
+.rank .fig{text-align:right;font-variant-numeric:tabular-nums;color:var(--graphite)}
+
+/* chart frame */
+.chart{background:var(--surface);border:1px solid var(--rule);padding:14px 14px 10px}
+.chart h4{font-size:14px;margin-bottom:2px}
+.chart .cap{font-size:12px;color:var(--graphite);margin-bottom:10px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--graphite);margin-top:8px}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:5px}
+.axis text{font-family:var(--narrow);font-size:10.5px;fill:var(--mute)}
+.gl{stroke:var(--rule-soft);stroke-width:1}
+.dot{fill:var(--surface);stroke-width:2}
+
+/* map */
+.mapwrap{background:var(--surface);border:1px solid var(--rule);padding:16px}
+.switch{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);width:fit-content;margin-bottom:14px;background:var(--paper)}
+.switch button{
+  font:inherit;font-size:12.5px;padding:6px 12px;border:0;border-right:1px solid var(--rule);
+  background:transparent;color:var(--graphite);cursor:pointer
+}
+.switch button:last-child{border-right:0}
+.switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.tiles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;max-width:720px}
+.tile{position:relative;aspect-ratio:1/.82;border:1px solid var(--rule);padding:6px;display:flex;flex-direction:column;justify-content:space-between;cursor:default}
+.tile .ab{font-family:var(--narrow);font-size:15px;font-weight:700;letter-spacing:.02em}
+.tile .tv{font-family:var(--narrow);font-size:13px;font-variant-numeric:tabular-nums;line-height:1.1}
+.tile.na{background:repeating-linear-gradient(45deg,transparent,transparent 5px,var(--rule-soft) 5px,var(--rule-soft) 6px);color:var(--mute)}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;font-size:12px;color:var(--graphite);align-items:center}
+.maplegend span i{display:inline-block;width:15px;height:15px;border:1px solid var(--rule);vertical-align:-3px;margin-right:5px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.calc label{display:block;font-size:12.5px;color:var(--graphite);margin-bottom:4px}
+.calc input{
+  width:100%;font:inherit;font-variant-numeric:tabular-nums;padding:7px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink)
+}
+.calc input:focus,.switch button:focus-visible,nav.rail a:focus-visible{outline:2px solid var(--steel);outline-offset:1px}
+.calcout{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:16px}
+
+/* timeline */
+.cal{display:grid;gap:0;border-top:1px solid var(--ink)}
+.calrow{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-soft);font-size:13.5px}
+.calrow .when{font-variant-numeric:tabular-nums;color:var(--graphite)}
+.calrow b{font-weight:600}
+.calrow small{display:block;color:var(--graphite);font-size:12.5px}
+
+/* risk */
+.risks{display:grid;gap:10px}
+.risk{display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;padding:12px 14px;background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--amber)}
+.risk.hot{border-left-color:var(--clay)}
+.risk.cool{border-left-color:var(--steel)}
+.risk .lvl{font-size:12px;color:var(--graphite)}
+.risk h4{font-size:14px;margin-bottom:3px}
+.risk p{font-size:13px;color:var(--graphite);margin:0}
+
+.src{font-size:12.5px;color:var(--graphite)}
+.src li{margin-bottom:5px}
+footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-size:12.5px;color:var(--graphite)}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:0}
+  nav.rail{position:static;padding:14px 0 6px;border-bottom:1px solid var(--rule);overflow-x:auto}
+  nav.rail ol{display:flex;gap:0}
+  nav.rail a{border-left:0;border-bottom:2px solid var(--rule);white-space:nowrap;padding:6px 13px}
+  nav.rail a.on{border-bottom-color:var(--ink);background:transparent}
+  nav.rail .vintage{display:none}
+  .meter{border-right:0;border-bottom:1px solid var(--rule)}
+  .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tile{aspect-ratio:1/.72}
+  .strip,.strip.c4,.strip.c3,.calcout{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rank{grid-template-columns:92px minmax(0,1fr) 68px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <h1 class="title">Canadian real estate, top to bottom</h1>
+    <div class="stamp">
+      Compiled <b>11 October 2026</b><br>
+      Resale &amp; construction data through <b>August 2026</b><br>
+      Rental through <b>September</b>, commercial through <b>Q3 2026</b>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+
+<nav class="rail" aria-label="Sections">
+  <ol>
+    <li><a href="#status" class="on">Market status<span class="vintage">Where things stand</span></a></li>
+    <li><a href="#residential">Residential<span class="vintage">Aug 2026</span></a></li>
+    <li><a href="#rental">Rental<span class="vintage">Sept 2026</span></a></li>
+    <li><a href="#commercial">Commercial<span class="vintage">Q3 2026</span></a></li>
+    <li><a href="#capital">Capital markets<span class="vintage">H1 2026</span></a></li>
+    <li><a href="#geography">Geography<span class="vintage">Provinces &amp; cities</span></a></li>
+    <li><a href="#innovation">Policy &amp; innovation<span class="vintage">2026 pipeline</span></a></li>
+    <li><a href="#affordability">Affordability tool<span class="vintage">Interactive</span></a></li>
+    <li><a href="#watchlist">Risks &amp; calendar<span class="vintage">Next 90 days</span></a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ============ STATUS ============ -->
+<section id="status" class="hero">
+  <div class="sechead">
+    <h2>The rate story just flipped</h2>
+    <span class="asof">Pins show current position; grey marks show three months ago</span>
+  </div>
+  <p class="lede">For two years every forecast assumed the next move in rates was down. That assumption broke this autumn. Inflation reached 3%, bond yields pushed fixed mortgage rates up across all six big banks, and several major forecasters now expect the Bank of Canada to <b>raise</b> its policy rate on 28 October. Housing has gone quiet in response — sales and prices have been close to flat for four months. Commercial has gone the other way: office and industrial both tightened sharply in the third quarter, because almost nothing is being built.</p>
+
+  <div class="meters">
+    <div class="meter">
+      <div class="mname">Resale housing</div>
+      <div class="mval">4.8 months of inventory, sales-to-new-listings 49.1%</div>
+      <div class="scale" role="img" aria-label="Resale housing is balanced but has drifted slightly toward buyers since the summer">
+        <div class="track"></div>
+        <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
+        <div class="ghost" style="left:52%"></div>
+        <div class="pin" style="left:59%"></div>
+      </div>
+      <div class="mends"><span>Sellers</span><span>Balanced</span><span>Buyers</span></div>
+      <div class="mnote"><span class="dir flat">Balanced, drifting.</span> Flat for four straight months.</div>
+    </div>
+    <div class="meter">
+      <div class="mname">Purpose-built rental</div>
+      <div class="mval">Asking rents $2,034, down 24 straight months; vacancy 3.1%</div>
+      <div class="scale" role="img" aria-label="Rental still favours tenants but has begun to stabilise">
+        <div class="track"></div>
+        <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
+        <div class="ghost" style="left:76%"></div>
+        <div class="pin" style="left:72%"></div>
+      </div>
+      <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
+      <div class="mnote"><span class="dir flat">Bottoming.</span> Toronto and Vancouver have stopped falling.</div>
+    </div>
+    <div class="meter">
+      <div class="mname">Office</div>
+      <div class="mval">16.7% vacancy, five consecutive quarters of positive absorption</div>
+      <div class="scale" role="img" aria-label="Office is tightening quickly though still tenant-favourable overall">
+        <div class="track"></div>
+        <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
+        <div class="ghost" style="left:74%"></div>
+        <div class="pin" style="left:66%"></div>
+      </div>
+      <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
+      <div class="mnote"><span class="dir up">Tightening fast.</span> Trophy space is down to 6.3%.</div>
+    </div>
+    <div class="meter">
+      <div class="mname">Industrial</div>
+      <div class="mval">5.2% availability, biggest quarterly drop in five years</div>
+      <div class="scale" role="img" aria-label="Industrial has turned decisively toward landlords">
+        <div class="track"></div>
+        <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
+        <div class="ghost" style="left:55%"></div>
+        <div class="pin" style="left:44%"></div>
+      </div>
+      <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
+      <div class="mnote"><span class="dir up">Turned.</span> 10.3M sq. ft. absorbed, most since 2022.</div>
+    </div>
+  </div>
+
+  <div class="strip c4">
+    <div class="cell"><div class="k">Policy rate</div><div class="v">2.25%</div><div class="d flat">Held since Oct 2025</div></div>
+    <div class="cell"><div class="k">CPI inflation</div><div class="v">3.0%</div><div class="d down">August, above target</div></div>
+    <div class="cell"><div class="k">Five-year fixed</div><div class="v">4.34%</div><div class="d down">Insured, rising since Sept</div></div>
+    <div class="cell"><div class="k">Average home price</div><div class="v">$668,219</div><div class="d up">+0.6% year over year</div></div>
+    <div class="cell"><div class="k">MLS® HPI</div><div class="v">−3.0%</div><div class="d down">Year over year, August</div></div>
+    <div class="cell"><div class="k">Housing starts, 6-mo trend</div><div class="v">244,149</div><div class="d down">−1.3% from July</div></div>
+    <div class="cell"><div class="k">Average asking rent</div><div class="v">$2,034</div><div class="d down">−4.2% year over year</div></div>
+    <div class="cell"><div class="k">H1 investment volume</div><div class="v">$24.1B</div><div class="d up">+19% year over year</div></div>
+  </div>
+
+  <div class="panel" style="margin-top:20px;border-left:3px solid var(--clay)">
+    <h4>What changed since September</h4>
+    <p style="margin-bottom:0">Four things. Inflation hit 3% and the rate debate inverted — UBS, Manulife, Oxford Economics and Scotiabank have all moved to calling an October hike, while RBC calls it a close call. Fixed mortgage rates rose 10 to 50 basis points across the big six since early September. Office vacancy fell again to 16.7% with the largest quarterly drop in sublease space since 2005. And industrial absorption of 10.3 million sq. ft. was the strongest quarter since 2022, ending any question about whether that market had bottomed.</p>
+  </div>
+</section>
+
+<!-- ============ RESIDENTIAL ============ -->
+<section id="residential">
+  <div class="sechead">
+    <h2>Residential</h2>
+    <span class="asof">CREA, August 2026 package released 15 September; September data due 16 October</span>
+  </div>
+  <p class="lede">August broke the summer's run of gains: sales slipped 0.7% while new listings rose 3.3%, ending three months of declining supply. The sales-to-new-listings ratio fell to 49.1%, the loosest reading of the year. Prices did not move — the HPI was flat month over month and is down 3.0% on the year. <b>CREA's own read is that the economy, not the housing market, is now the problem</b>: rising inflation risk, higher fixed mortgage rates, and doubts about the durability of growth are expected to weigh on momentum into 2027.</p>
+
+  <div class="strip c3">
+    <div class="cell"><div class="k">Sales, August</div><div class="v">−0.7%</div><div class="d"><span class="down">m/m, and −6.9% y/y</span></div></div>
+    <div class="cell"><div class="k">Active listings</div><div class="v">~200k</div><div class="d flat">+1.4% y/y</div></div>
+    <div class="cell"><div class="k">Months of inventory</div><div class="v">4.8</div><div class="d flat">Fourth month unchanged</div></div>
+    <div class="cell"><div class="k">Sales to new listings</div><div class="v">49.1%</div><div class="d down">From 51.1% in July</div></div>
+    <div class="cell"><div class="k">2026 sales forecast</div><div class="v">463,336</div><div class="d down">−1.4% on 2025</div></div>
+    <div class="cell"><div class="k">2027 sales forecast</div><div class="v">480,567</div><div class="d up">+3.7%, still below 2021</div></div>
+  </div>
+
+  <h3 class="sub">Price and volume, 1980 to 2027</h3>
+  <div class="cols two">
+    <div class="chart">
+      <h4>National average sale price</h4>
+      <div class="cap">Annual average, Canadian dollars. Dashed segment is CREA's forecast for 2026 and 2027.</div>
+      <div id="c-price"></div>
+      <div class="legend"><span><i style="background:var(--spruce)"></i>Actual</span><span><i style="background:var(--spruce);opacity:.45"></i>Forecast</span></div>
+    </div>
+    <div class="chart">
+      <h4>Residential sales activity</h4>
+      <div class="cap">Annual transactions through Canadian MLS® Systems. The 2021 peak of 669,877 is not forecast to return.</div>
+      <div id="c-sales"></div>
+      <div class="legend"><span><i style="background:var(--steel)"></i>Actual</span><span><i style="background:var(--steel);opacity:.45"></i>Forecast</span></div>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:18px">The long view matters for reading today's numbers. The average price peaked at <b>$706,466 in 2022</b> and has stayed within roughly 4% of that level every year since, so the post-2022 story is stagnation rather than a crash. Volumes are the softer half of the picture: five years after the 2021 peak, transaction counts are still running roughly 30% below it, and CREA's forecast does not bring them back within the decade's range before 2028.</p>
+
+  <h3 class="sub">New supply keeps shrinking</h3>
+  <div class="cols two">
+    <div class="chart">
+      <h4>Housing starts, monthly seasonally adjusted annual rate</h4>
+      <div class="cap">All areas of Canada, as reported in each monthly release. Figures are revised between releases.</div>
+      <div id="c-starts"></div>
+    </div>
+    <div class="panel plain">
+      <div class="strip c3" style="margin-top:0">
+        <div class="cell"><div class="k">Actual starts, August</div><div class="v">17,691</div><div class="d down">−2% year over year</div></div>
+        <div class="cell"><div class="k">Year to date</div><div class="v">149,542</div><div class="d down">−4% on 2025</div></div>
+        <div class="cell"><div class="k">Under construction</div><div class="v">371,658</div><div class="d down">−0.4% from July</div></div>
+        <div class="cell"><div class="k">Completions, August</div><div class="v">17,550</div><div class="d down">−11.2% from July</div></div>
+        <div class="cell"><div class="k">Permitted, not started</div><div class="v">142,423</div><div class="d up">+0.7% from July</div></div>
+        <div class="cell"><div class="k">Monthly annual rate</div><div class="v">229,046</div><div class="d flat">Flat on July</div></div>
+      </div>
+      <p class="lede" style="margin:16px 0 0;font-size:13.5px">CMHC's deputy chief economist expects the downward trend to continue, with construction moderating further toward year-end. The regional split has shifted since the summer: Toronto's six-month trend is now flat, while Vancouver and Montreal are both up 6% on multi-unit starts. The 142,423 permitted-but-unstarted units keep growing — projects that clear approval but not the financing test.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The condominium problem, and its mirror image</h3>
+  <div class="cols three">
+    <div class="panel">
+      <span class="tag res">A floor, finally</span>
+      <h4>First sales gain since 2023</h4>
+      <p>GTHA new condo sales rose 52% year over year in the second quarter to 702 units — the first annual increase since Q3 2023. Sales of completed, developer-held units more than tripled to 535, helped by bulk deals with investment groups. The level is still 86% below the ten-year average for a second quarter.</p>
+    </div>
+    <div class="panel">
+      <span class="tag watch">Still stuck</span>
+      <h4>$1,186 new versus $830 resale</h4>
+      <p>Developer-held completed inventory hit a record 5,001 units, up 68% on the year. Asking prices on that standing stock averaged $1,186 per square foot — a 43% premium over recently registered resale product at $830. Pre-construction sales fell 80% to just 50 units.</p>
+    </div>
+    <div class="panel">
+      <span class="tag watch">The hole ahead</span>
+      <h4>Pipeline down 62% from peak</h4>
+      <p>Combined pre-construction and under-construction inventory fell 37% year over year to 48,710 units, against a 2022 peak near 127,000. Construction starts totalled 448 units, no new projects launched for a second straight quarter, and 11,653 units have been cancelled since the start of 2024.</p>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:18px">Ontario's enhanced HST rebate — up to $130,000 on new homes under $1 million, with royal assent on 18 June 2026 — is what moved completed inventory. It is also why pre-construction collapsed: to qualify, construction must start before 31 March 2027 and be substantially complete by 31 December 2029, which almost no new launch can meet. The policy cleared the shelf and emptied the pipeline at the same time.</p>
+</section>
+
+<!-- ============ RENTAL ============ -->
+<section id="rental">
+  <div class="sechead">
+    <h2>Rental</h2>
+    <span class="asof">Rentals.ca and Urbanation, September 2026; vacancy from CMHC's annual survey</span>
+  </div>
+  <p class="lede">September marked <b>two full years</b> of falling asking rents, the longest run in the report's recent history. At $2,034 the national average is 7.3% below two years ago and 9.2% off the May 2024 peak of $2,202. But the monthly decline was a single dollar, and Toronto and Vancouver — which lead the national series — have been trending higher for six months after bottoming at five-year lows.</p>
+
+  <div class="cols two">
+    <div class="chart">
+      <h4>Average asking rent, all property types</h4>
+      <div class="cap">Monthly national average. Gaps in the line mark months not shown in the published summaries used here.</div>
+      <div id="c-rent"></div>
+    </div>
+    <div class="panel plain">
+      <h4 class="mini">Annual decline by property type, September 2026</h4>
+      <div class="ranks" id="r-renttype"></div>
+      <div class="strip c3" style="margin-top:16px">
+        <div class="cell"><div class="k">Purpose-built vacancy</div><div class="v">3.1%</div><div class="d down">Up from 2.2% in 2024</div></div>
+        <div class="cell"><div class="k">Below May 2024 peak</div><div class="v">−9.2%</div><div class="d down">Peak was $2,202</div></div>
+        <div class="cell"><div class="k">Rent per sq. ft.</div><div class="v">$2.48</div><div class="d down">−1.5% y/y, six largest</div></div>
+      </div>
+      <p class="lede" style="margin:14px 0 0;font-size:13.5px">Supply drove the correction, and the provincial spread shows it: Ontario is down 4.8% and British Columbia 2.9%, while Nova Scotia and Saskatchewan are both up 1.4%. Urbanation now points to an upcoming return to positive rent growth, on the reasoning that where Toronto and Vancouver go, the rest of the country follows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMERCIAL ============ -->
+<section id="commercial">
+  <div class="sechead">
+    <h2>Commercial</h2>
+    <span class="asof">CBRE Q3 2026 office and industrial figures; retail from the H1 2026 rent survey</span>
+  </div>
+  <p class="lede">Commercial is now the strong half of Canadian real estate, and the reason is arithmetic rather than exuberance. Office construction sits near a 22-year low with no significant completions expected until <b>2032</b>. Industrial deliveries this year will be the lowest in eight. Against a frozen pipeline, ordinary demand is enough to tighten everything at once.</p>
+
+  <h3 class="sub">Office</h3>
+  <div class="cols two">
+    <div class="chart">
+      <h4>National office vacancy</h4>
+      <div class="cap">Year-end readings, with the last two quarters added. The pre-pandemic benchmark was 10.9%.</div>
+      <div id="c-office"></div>
+    </div>
+    <div class="panel plain">
+      <div class="strip c3" style="margin-top:0">
+        <div class="cell"><div class="k">National vacancy</div><div class="v">16.7%</div><div class="d up">Down again in Q3</div></div>
+        <div class="cell"><div class="k">Trophy vacancy</div><div class="v">6.3%</div><div class="d up">Six-year low</div></div>
+        <div class="cell"><div class="k">Q3 net absorption</div><div class="v">2.0M</div><div class="d up">Sq. ft., fifth positive quarter</div></div>
+        <div class="cell"><div class="k">Sublease space</div><div class="v">&lt;9.0M</div><div class="d up">Sq. ft., 50.2% off peak</div></div>
+        <div class="cell"><div class="k">Under construction</div><div class="v">1.4M</div><div class="d down">Sq. ft., 23.2% pre-leased</div></div>
+        <div class="cell"><div class="k">Removed since 2021</div><div class="v">12.6M</div><div class="d flat">Sq. ft., 2.7% of inventory</div></div>
+      </div>
+      <p class="lede" style="margin:16px 0 0;font-size:13.5px">Nine of eleven markets posted positive absorption, with downtown vacancy falling in eight — Toronto led at 90 basis points. Vancouver was the outlier, pushed up by a single tech tenant consolidating. Sublease space fell 1.3 million sq. ft., the largest quarterly drop since 2005. The pipeline ticked up for the first time in four years but is only 23.2% pre-leased, down from over 60% a year ago.</p>
+    </div>
+  </div>
+
+  <h4 class="mini" style="margin-top:22px">The gap inside the office market, Q3 2026</h4>
+  <div class="panel plain">
+    <div class="ranks" id="r-officeseg"></div>
+    <p class="src" style="margin-top:12px">Best-in-class space is effectively full while older stock is not recovering. Trophy vacancy is 6.3% nationally — 2.7% in Toronto and 3.0% in Montreal — against 23.8% for downtown Class B and C. CBRE's read is that B and C vacancy is improving mainly because obsolete buildings are being removed, not because they are leasing.</p>
+  </div>
+
+  <h3 class="sub">Industrial, retail and the rest</h3>
+  <div class="cols three">
+    <div class="panel">
+      <span class="tag com">Industrial</span>
+      <h4>The turn arrived in force</h4>
+      <p>Availability fell 30 basis points to 5.2%, the largest quarterly decline in five years, with eight of eleven markets tightening. Net absorption of 10.3 million sq. ft. was the strongest quarter since 2022 and 3.7 times the trailing three-year average, bringing the year to 18.8 million. Calgary alone took 3.8 million sq. ft., its second-best quarter on record; Edmonton was the only negative market.</p>
+      <p style="margin-bottom:0">Rents are still falling but more slowly: $14.77 per sq. ft., down 2.4% against Q2's 3.8%. Deliveries this year will total 19.3 million sq. ft., the lowest in eight years.</p>
+    </div>
+    <div class="panel">
+      <span class="tag com">Retail</span>
+      <h4>Tight, and quietly dependable</h4>
+      <p>Vacancy stayed tight through the first half, especially in grocery-anchored suburban centres, with available space effectively at capacity in several high-growth corridors. Demand keeps shifting toward services — medical, fitness, personal care and quick-service food — while experiential tenants backfill large-format boxes.</p>
+      <p style="margin-bottom:0">New supply is the constraint: retail delivery is tied to mixed-use development, which has slowed to a crawl.</p>
+    </div>
+    <div class="panel">
+      <span class="tag com">Multifamily and seniors</span>
+      <h4>One softening, one squeezed</h4>
+      <p>Multifamily is in a transition year as softer rental demand and continued deliveries lift vacancy — though it was also the largest single destination for investment capital in the first half, at $6.9 billion.</p>
+      <p style="margin-bottom:0">Seniors housing is the opposite trade: an ageing population is driving double-digit rent growth while construction stays limited, because market rents still sit below what new builds need to pencil. Competition for those assets is intensifying.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPITAL ============ -->
+<section id="capital">
+  <div class="sechead">
+    <h2>Capital markets</h2>
+    <span class="asof">Volumes from Altus Group, H1 2026; cap rates from CBRE's Q2 2026 survey</span>
+  </div>
+  <p class="lede">Transaction volume is running well ahead of last year. First-half investment reached <b>$24.1 billion, up 19%</b>, excluding the Alberta markets where data was incomplete. That puts the year on track for CBRE's roughly $56 billion forecast, which would be the third-highest total on record. Cap rates appear to have peaked: the national all-property average compressed to 6.58% in the second quarter, with a 320 basis point spread over the Canada ten-year.</p>
+
+  <div class="cols two">
+    <div class="panel plain">
+      <h4 class="mini">First-half investment by sector</h4>
+      <div class="ranks" id="r-invest"></div>
+      <p class="src" style="margin-top:12px">H1 2026 volume and year-over-year change, excluding Alberta. By region, the GTA took $10.2 billion, up 41%, with Montreal at $5.7 billion and Ottawa at $1.7 billion. Vancouver was the exception, down 23%.</p>
+      <div class="strip c3" style="margin-top:16px">
+        <div class="cell"><div class="k">All-property cap rate</div><div class="v">6.58%</div><div class="d up">Q2, third quarter of compression</div></div>
+        <div class="cell"><div class="k">Spread to GoC 10-year</div><div class="v">320</div><div class="d flat">Basis points, Q2</div></div>
+        <div class="cell"><div class="k">2026 volume forecast</div><div class="v">~$56B</div><div class="d up">Third highest on record</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>What the money is chasing</h4>
+      <p style="margin-bottom:10px"><b>Office, still the surprise.</b> Office investment rose 61% in the first half. The bet is supply arithmetic: with 1.4 million sq. ft. under construction and nothing significant delivering before 2032, today's best buildings have no future competition.</p>
+      <p style="margin-bottom:10px"><b>Multifamily, at scale.</b> At $6.9 billion and up 67%, apartments were the single largest sector. Softer rents have not deterred buyers underwriting a supply cliff three years out.</p>
+      <p style="margin-bottom:10px"><b>Data centres.</b> Microsoft has committed roughly $7.5 billion to Canadian cloud and AI infrastructure with its first new facility due in the second half of this year. Around Toronto, a 112 MW project on Langstaff Road anchors a corridor of roughly 360 MW planned long term.</p>
+      <p style="margin-bottom:0"><b>Distressed condo inventory.</b> Bulk buyers tripled their take of completed developer-held units, converting ownership stock to rental.</p>
+    </div>
+  </div>
+  <p class="src" style="margin-top:16px">Cap rate figures are the most recent published, covering the second quarter. CBRE's Q3 cap rate survey is expected later this month, and the sharp move in bond yields since September makes it the number to watch.</p>
+</section>
+
+<!-- ============ GEOGRAPHY ============ -->
+<section id="geography">
+  <div class="sechead">
+    <h2>Geography</h2>
+    <span class="asof">Prices and forecasts from CREA; starts from CMHC, January to August 2026</span>
+  </div>
+  <p class="lede">The decade-long pattern has inverted. British Columbia and Ontario — the two provinces that drove national price growth through the 2010s — are the only two CREA forecasts to see prices <b>fall</b> this year. Atlantic Canada, Quebec and the Prairies have now carried national price growth for three consecutive years. Construction tells a different regional story again: Alberta has given back 16% of its starts while Manitoba is up 21%.</p>
+
+  <div class="mapwrap">
+    <div class="switch" role="group" aria-label="Choose what the map shows">
+      <button type="button" data-metric="price" aria-pressed="true">Average price, 2025</button>
+      <button type="button" data-metric="change" aria-pressed="false">Price forecast, 2026</button>
+      <button type="button" data-metric="starts" aria-pressed="false">Housing starts</button>
+      <button type="button" data-metric="balance" aria-pressed="false">Market balance</button>
+    </div>
+    <div class="tiles" id="tilemap"></div>
+    <div class="maplegend" id="maplegend"></div>
+    <p class="src" style="margin-top:12px">Provinces are arranged geographically on wide screens and west to east on narrow ones, never to scale. Territories are excluded from CREA's provincial forecast and from CMHC's provincial starts table. Balance readings reflect CREA's commentary on inventory conditions through August.</p>
+  </div>
+
+  <h3 class="sub">Provincial detail</h3>
+  <div class="tbl-scroll">
+    <table>
+      <caption>Average price is the 2025 actual; the forecast change is CREA's for 2026. Starts cover January to August 2026 in centres of 10,000 or more.</caption>
+      <thead><tr><th>Region</th><th>2025 average price</th><th>2026 price forecast</th><th>Starts, Jan–Aug</th><th>Change</th></tr></thead>
+      <tbody id="tb-prov"></tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Cities, July 2026 board readings</h3>
+  <div class="panel plain">
+    <div class="ranks" id="r-cities"></div>
+    <p class="src" style="margin-top:12px">These are July 2026 figures, the last month for which a comparable set was compiled across boards; several boards have since reported August and September. Boards also report on different bases — some average sale price, some benchmark, some median — so treat this as a directional ranking rather than a like-for-like comparison. The spread from Victoria to Regina is roughly $935,000.</p>
+  </div>
+</section>
+
+<!-- ============ INNOVATION ============ -->
+<section id="innovation">
+  <div class="sechead">
+    <h2>Policy and innovation</h2>
+    <span class="asof">Federal measures through the Spring Economic Update 2026 and Royal Assent, June 2026</span>
+  </div>
+  <p class="lede">The most consequential change in Canadian housing is institutional rather than technological. Ottawa has stopped subsidising demand and started acting as a buyer, on the theory that a factory-built housing industry needs guaranteed customers more than it needs grants. Whether that scales is still an open question — the Parliamentary Budget Officer puts Build Canada Homes at about <b>26,000 units over five years</b>, roughly 3.7% of what it estimates is needed to restore affordability.</p>
+
+  <div class="cols two">
+    <div class="panel">
+      <span class="tag res">Build Canada Homes</span>
+      <h4>A Crown corporation with a purchase order</h4>
+      <p style="margin-bottom:10px">Launched September 2025 with $13 billion in initial capitalisation; the enabling Act received Royal Assent in June 2026. Alongside it sit $1 billion in equity and $25 billion in debt financing aimed at Canadian prefabricated builders.</p>
+      <p style="margin-bottom:10px">Six federal Direct Build sites — Toronto, Winnipeg, Edmonton, Ottawa, Dartmouth and Longueuil — break ground this half for up to about 4,000 homes, with procurement explicitly favouring modular and factory-built construction.</p>
+      <p style="margin-bottom:0">The volume is small and the PBO's projection makes that plain. The mechanism is the point: modular factories fail on throughput rather than technology, and a forward order book measured in years is the one thing the private market has never produced on its own.</p>
+    </div>
+    <div class="panel">
+      <span class="tag res">Spending and rules</span>
+      <h4>What changed for buyers and builders</h4>
+      <p style="margin-bottom:10px"><b>$6 billion</b> to recruit, train and hire skilled trades workers nationally, plus <b>$41.9 million over five years</b> from 2026–27 to streamline National Model Codes and speed approvals for modular and factory-built housing.</p>
+      <p style="margin-bottom:10px">More than <b>$7 billion</b> in low-cost lending accelerated through the Apartment Construction Loan Program, supporting up to 16,500 rental homes in British Columbia alone.</p>
+      <p style="margin-bottom:10px">In Ontario, an enhanced rebate of up to <b>$130,000</b> on new homes under $1 million, in force since June. Its 2027 and 2029 construction deadlines are now shaping which projects move.</p>
+      <p style="margin-bottom:0">Unchanged: the stress test at contract rate plus two points, the $1.5 million insured mortgage cap, and 30-year amortisations for first-time buyers and new builds.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Technology, with the hype removed</h3>
+  <div class="cols three">
+    <div class="panel">
+      <h4>Proptech funding reset</h4>
+      <p>Canadian proptech companies raised about C$450 million in 2025, down from roughly C$800 million in 2024, with fewer new startups. Toronto holds around 45% of the country's proptech firms. The constraint has moved from innovation to execution at scale, and companies are prioritising revenue milestones over the next round.</p>
+    </div>
+    <div class="panel">
+      <h4>Robots on the framing line</h4>
+      <p>The clearest signal of maturity is partnership rather than disruption: Mattamy Homes, one of Canada's largest builders, is scaling automated homebuilding with Promise Robotics. Pairing emerging technology with real operating environments is what closes the gap between pilot and production.</p>
+    </div>
+    <div class="panel">
+      <h4>AI expectations, recalibrated</h4>
+      <p>The share of commercial real estate executives reporting transformative impact from AI fell to roughly 1%, from about 12% a year earlier. Where returns do show up — energy optimisation, lease abstraction, acquisition screening — they follow from fixing data foundations first. Pilots are easy; production is not.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Five structural shifts worth tracking</h3>
+  <div class="cols two">
+    <div class="panel plain">
+      <h4 class="mini">Office inventory is being permanently reduced</h4>
+      <p class="src" style="margin-bottom:16px">Conversions have removed 9.6 million sq. ft. since 2021 and demolitions a further 3.0 million, cutting national stock by 2.7%. Vacancy is falling partly because the denominator is shrinking — and CBRE now expects no significant new completions before 2032.</p>
+      <h4 class="mini">Rental is absorbing the condo market's failure</h4>
+      <p class="src" style="margin-bottom:16px">Cancelled presale projects are converting to purpose-built rental, and bulk buyers are moving completed ownership stock into the rental pool. That softens rents now and deepens the ownership-supply hole around 2028–29.</p>
+      <h4 class="mini">AI infrastructure is a new property type here</h4>
+      <p class="src" style="margin-bottom:0">Power availability, not land, is becoming the binding constraint on industrial-adjacent development in the Toronto and Montreal corridors.</p>
+    </div>
+    <div class="panel plain">
+      <h4 class="mini">Demographics are reshaping the bid</h4>
+      <p class="src" style="margin-bottom:16px">Seniors housing has the strongest fundamentals of any asset class and the least new supply, because construction costs sit above what current rents justify.</p>
+      <h4 class="mini">Regional convergence is under way</h4>
+      <p class="src" style="margin-bottom:0">Saskatchewan and Newfoundland lead price growth this year while British Columbia and Ontario decline. Affordability, not amenity, is now the strongest predictor of where prices rise, and three decades of interprovincial divergence are starting to unwind.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AFFORDABILITY ============ -->
+<section id="affordability">
+  <div class="sechead">
+    <h2>Affordability tool</h2>
+    <span class="asof">Illustrative only — not a mortgage quote</span>
+  </div>
+  <p class="lede">Payments use Canadian semi-annual compounding. The qualifying figure applies the federal stress test, which requires borrowers to qualify at the higher of their contract rate plus two percentage points or 5.25%. Income required assumes a 32% gross debt service ratio including property tax and heat. The default rate is the roughly 4.34% available on insured five-year fixed mortgages through brokers in early October — bank posted specials run higher, around 4.79% to 5.14%.</p>
+
+  <div class="panel">
+    <div class="calc">
+      <div><label for="i-price">Purchase price</label><input id="i-price" type="number" value="668219" min="50000" step="5000"></div>
+      <div><label for="i-down">Down payment (%)</label><input id="i-down" type="number" value="20" min="5" max="100" step="1"></div>
+      <div><label for="i-rate">Contract rate (%)</label><input id="i-rate" type="number" value="4.34" min="0.5" max="15" step="0.01"></div>
+      <div><label for="i-amort">Amortisation (years)</label><input id="i-amort" type="number" value="25" min="5" max="30" step="1"></div>
+      <div><label for="i-tax">Property tax (yearly)</label><input id="i-tax" type="number" value="4200" min="0" step="100"></div>
+    </div>
+    <div class="calcout" id="calcout"></div>
+    <p class="src" id="calcnote" style="margin:12px 0 0"></p>
+  </div>
+</section>
+
+<!-- ============ WATCHLIST ============ -->
+<section id="watchlist">
+  <div class="sechead">
+    <h2>Risks and release calendar</h2>
+    <span class="asof">Next 90 days</span>
+  </div>
+
+  <div class="cols two">
+    <div class="panel plain">
+      <h4 class="mini">What could move the market</h4>
+      <div class="risks">
+        <div class="risk hot">
+          <div class="lvl">Rate risk<br>High</div>
+          <div><h4>A hike is now the base case for several forecasters</h4><p>UBS, Manulife, Oxford Economics and Scotiabank have all moved to calling an increase on 28 October; UBS and Manulife see a second by January. RBC holds near term and calls the decision a close call. Two quarter-point moves would put the policy rate at 2.75%.</p></div>
+        </div>
+        <div class="risk hot">
+          <div class="lvl">Inflation<br>High</div>
+          <div><h4>CPI at 3% and expected higher</h4><p>August inflation reached the top of the Bank's control range, driven by energy. UBS projects 3.3% when September data lands on 19 October. That print is the single biggest input into the rate decision nine days later.</p></div>
+        </div>
+        <div class="risk hot">
+          <div class="lvl">Credit<br>Elevated</div>
+          <div><h4>Fixed mortgage rates are rising again</h4><p>All six big banks raised select fixed rates between early September and early October, by 10 to 50 basis points. Borrowers renewing into this now face a higher floor than they did three months ago, and the stress test compounds it.</p></div>
+        </div>
+        <div class="risk">
+          <div class="lvl">Trade<br>Moderate</div>
+          <div><h4>Tariffs and CUSMA</h4><p>US tariffs and Canadian counter-measures remain in place. Industrial absorption has been strong regardless, but construction input costs stay directly exposed.</p></div>
+        </div>
+        <div class="risk cool">
+          <div class="lvl">Supply<br>Watch</div>
+          <div><h4>A construction air pocket around 2028</h4><p>Weak starts today become weak completions in three years, just as the current pipeline empties. In the GTHA condo market the cliff is already visible: inventory down 62% from its 2022 peak. Rental relief now is borrowed from later.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel plain">
+      <h4 class="mini">Scheduled data</h4>
+      <div class="cal">
+        <div class="calrow"><span class="when">16 Oct 2026</span><div><b>CREA September statistics package</b><small>Whether four flat months became five, and whether higher fixed rates have shown up in sales yet.</small></div></div>
+        <div class="calrow"><span class="when">16 Oct 2026</span><div><b>CMHC September housing starts</b><small>Released 8:15 ET. The six-month trend has slipped to 244,149 and CMHC expects further moderation.</small></div></div>
+        <div class="calrow"><span class="when">19 Oct 2026</span><div><b>Statistics Canada September CPI</b><small>The decisive input. UBS projects 3.3% against 3.0% in August.</small></div></div>
+        <div class="calrow"><span class="when">Late Oct 2026</span><div><b>CBRE Q3 cap rates and investment insights</b><small>First read on whether September's bond move has reached property pricing.</small></div></div>
+        <div class="calrow"><span class="when">28 Oct 2026</span><div><b>Bank of Canada decision and Monetary Policy Report</b><small>Hold or hike, plus the first full forecast since July.</small></div></div>
+        <div class="calrow"><span class="when">Early Nov 2026</span><div><b>Rentals.ca October rent report</b><small>Urbanation expects a return to positive rent growth. This is where it would first appear.</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources">
+  <div class="sechead"><h2>Sources and method</h2></div>
+  <p class="lede">Every figure here comes from a primary release rather than secondary coverage of it, and each carries the period it covers. Where a number is a forecast it is labelled as one. All amounts are Canadian dollars.</p>
+  <div class="cols two">
+    <ul class="src">
+      <li><b>Resale housing:</b> Canadian Real Estate Association, August 2026 statistics package (released 15 September 2026) and quarterly forecast (updated 15 July 2026).</li>
+      <li><b>Construction:</b> CMHC Starts and Completions Survey, August 2026 data released 16 September 2026, plus the Fall 2026 Housing Supply Report.</li>
+      <li><b>Rental:</b> Rentals.ca and Urbanation National Rent Report, September 2026 (released 7 October); vacancy from CMHC's annual Rental Market Report.</li>
+      <li><b>Condominiums:</b> Urbanation Q2 2026 GTHA condominium market data.</li>
+    </ul>
+    <ul class="src">
+      <li><b>Commercial:</b> CBRE Canada Q3 2026 Office and Industrial Figures, H1 2026 Retail Rent Survey, Q2 2026 Cap Rates and Investment Insights, and the 2026 Canada Real Estate Market Outlook.</li>
+      <li><b>Investment volumes:</b> Altus Group Canadian Commercial Real Estate Market Update, Q2 2026. Alberta data was incomplete at publication and is excluded.</li>
+      <li><b>Rates and macro:</b> Bank of Canada decision of 2 September 2026; Statistics Canada CPI; bank forecasts as reported in early October 2026.</li>
+      <li><b>Policy:</b> Parliamentary Budget Officer report on Build Canada Homes; federal Spring Economic Update 2026.</li>
+    </ul>
+  </div>
+  <p class="src" style="margin-top:14px">A national average blends Vancouver and Regina into one number and describes the price of a home nowhere in particular. City figures come from different boards on different bases in different months. Monthly figures are revised between releases, so series shown here may not match later-published versions. Nothing here is investment, legal or mortgage advice.</p>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <div class="wrap">Canadian real estate dashboard. Data current to 11 October 2026 — figures move monthly, and with a Bank of Canada decision on 28 October this one will date faster than most. Check the source releases before relying on any single number.</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function money(v){return "$"+Math.round(v).toLocaleString("en-CA");}
+function k(v){return Math.round(v/1000)+"k";}
+function pct(v,dp){return (v>0?"+":"−")+Math.abs(v).toFixed(dp===undefined?1:dp)+"%";}
+
+/* ---------- generic line chart ---------- */
+function lineChart(id,opt){
+  var host=document.getElementById(id); if(!host) return;
+  var W=560,H=225,L=52,R=12,T=14,B=26;
+  var vals=opt.values, n=vals.length;
+  var lo=opt.min!==undefined?opt.min:Math.min.apply(null,vals);
+  var hi=opt.max!==undefined?opt.max:Math.max.apply(null,vals);
+  var pad=(hi-lo)*0.12; lo-=pad; hi+=pad;
+  var x=function(i){return L+(W-L-R)*(n===1?0.5:i/(n-1));};
+  var y=function(v){return T+(H-T-B)*(1-(v-lo)/(hi-lo));};
+  var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":opt.alt||""});
+
+  var gy=el("g",{class:"axis"});
+  (opt.yTicks||[]).forEach(function(t){
+    gy.appendChild(el("line",{x1:L,x2:W-R,y1:y(t),y2:y(t),class:"gl"}));
+    var tx=el("text",{x:L-8,y:y(t)+3.5,"text-anchor":"end"}); tx.textContent=opt.yFmt(t); gy.appendChild(tx);
+  });
+  svg.appendChild(gy);
+
+  var gx=el("g",{class:"axis"});
+  (opt.xTicks||[]).forEach(function(i){
+    var tx=el("text",{x:x(i),y:H-8,"text-anchor":"middle"}); tx.textContent=opt.labels[i]; gx.appendChild(tx);
+  });
+  svg.appendChild(gx);
+  svg.appendChild(el("line",{x1:L,x2:W-R,y1:H-B,y2:H-B,stroke:"#16272E","stroke-width":1}));
+
+  var dFrom=opt.dashFrom===undefined?n-1:opt.dashFrom;
+  function path(from,to){
+    var d="";
+    for(var i=from;i<=to;i++){ d+=(i===from?"M":"L")+x(i).toFixed(1)+" "+y(vals[i]).toFixed(1); }
+    return d;
+  }
+  svg.appendChild(el("path",{d:path(0,dFrom),fill:"none",stroke:opt.color,"stroke-width":2.2,"stroke-linejoin":"round"}));
+  if(dFrom<n-1){
+    svg.appendChild(el("path",{d:path(dFrom,n-1),fill:"none",stroke:opt.color,"stroke-width":2.2,"stroke-dasharray":"5 4",opacity:.55}));
+  }
+  if(opt.dots){
+    vals.forEach(function(v,i){
+      var c=el("circle",{cx:x(i),cy:y(v),r:3.2,class:"dot",stroke:opt.color});
+      var ttl=el("title"); ttl.textContent=opt.labels[i]+": "+opt.yFmt(v,true); c.appendChild(ttl);
+      svg.appendChild(c);
+    });
+  } else {
+    vals.forEach(function(v,i){
+      var c=el("circle",{cx:x(i),cy:y(v),r:9,fill:"transparent"});
+      var ttl=el("title"); ttl.textContent=opt.labels[i]+": "+opt.yFmt(v,true); c.appendChild(ttl);
+      svg.appendChild(c);
+    });
+    var last=n-1;
+    svg.appendChild(el("circle",{cx:x(last),cy:y(vals[last]),r:3.2,class:"dot",stroke:opt.color}));
+  }
+  host.appendChild(svg);
+}
+
+/* ---------- data ---------- */
+var YEARS=[],PRICE=[67007,76035,72455,76839,76494,80421,94113,110194,129841,147278,142750,149015,150468,153616,158853,151556,151936,156102,153797,159251,165220,173079,190047,208600,227329,250183,278117,307921,305988,321224,339909,363584,364733,383798,408656,442734,490855,511480,491174,503681,569294,690637,706466,680539,687341,679543,686710,694164];
+var SALES=[162253,163104,153812,180579,193090,251903,266279,272525,308808,313333,243003,291432,317058,293790,294110,259073,324460,329867,313492,332906,331358,378797,417129,432042,457688,483536,484476,522111,432126,466238,447624,457836,455062,458216,484643,509994,543168,518890,463340,494377,557239,669877,499288,444007,479272,470314,463336,480567];
+for(var yy=1980;yy<=2027;yy++)YEARS.push(String(yy));
+var fIdx=YEARS.indexOf("2025");
+
+lineChart("c-price",{values:PRICE,labels:YEARS,color:"#1E6B58",dashFrom:fIdx,
+  xTicks:[0,10,20,30,40,47],yTicks:[100000,300000,500000,700000],
+  yFmt:function(v,full){return full?money(v):"$"+k(v);},
+  alt:"National average home price rose from about $67,000 in 1980 to a peak of $706,466 in 2022 and is forecast at $694,164 in 2027."});
+
+lineChart("c-sales",{values:SALES,labels:YEARS,color:"#2C5C8F",dashFrom:fIdx,
+  xTicks:[0,10,20,30,40,47],yTicks:[200000,350000,500000,650000],
+  yFmt:function(v,full){return full?Math.round(v).toLocaleString("en-CA"):k(v);},
+  alt:"Annual home sales peaked at 669,877 in 2021 and are forecast at 480,567 in 2027."});
+
+lineChart("c-starts",{values:[250961,235852,278380,261377,240773,229360,229046],
+  labels:["February","March","April","May","June","July","August"],color:"#1E6B58",dots:true,
+  xTicks:[0,1,2,3,4,5,6],yTicks:[230000,250000,270000],
+  yFmt:function(v,full){return full?Math.round(v).toLocaleString("en-CA")+" units":k(v);},
+  alt:"Housing starts annual rate fell from 278,380 in April to 229,046 in August 2026."});
+
+lineChart("c-rent",{values:[2137,2060,2057,2030,2008,2027,2037,2035,2034],
+  labels:["Aug 2025","Dec 2025","Jan 2026","Feb 2026","Mar 2026","Apr 2026","Jul 2026","Aug 2026","Sep 2026"],
+  color:"#2C5C8F",dots:true,xTicks:[0,2,4,6,8],yTicks:[2000,2050,2100,2150],
+  yFmt:function(v){return "$"+v;},
+  alt:"Average asking rent fell from $2,137 in August 2025 to a low of $2,008 in March 2026 and sits at $2,034 in September 2026."});
+
+lineChart("c-office",{values:[10.9,18.7,18.0,17.1,16.7],
+  labels:["End 2019","End 2024","End 2025","Q2 2026","Q3 2026"],color:"#2C5C8F",dots:true,
+  xTicks:[0,1,2,3,4],yTicks:[11,14,17,19],
+  yFmt:function(v){return v.toFixed(0)+"%";},
+  alt:"National office vacancy rose from 10.9% in 2019 to 18.7% in 2024 and has fallen to 16.7% by the third quarter of 2026."});
+
+/* ---------- ranked bars ---------- */
+function ranks(id,items,cls){
+  var host=document.getElementById(id); if(!host) return;
+  var max=Math.max.apply(null,items.map(function(i){return i.v;}));
+  items.forEach(function(it){
+    var row=document.createElement("div"); row.className="rank";
+    var a=document.createElement("span"); a.textContent=it.n;
+    var b=document.createElement("span"); b.className="bar";
+    var f=document.createElement("i"); f.style.width=(it.v/max*100).toFixed(1)+"%";
+    if(it.c)f.className=it.c; else if(cls)f.className=cls;
+    b.appendChild(f);
+    var c=document.createElement("span"); c.className="fig"; c.textContent=it.t;
+    row.appendChild(a);row.appendChild(b);row.appendChild(c);
+    host.appendChild(row);
+  });
+}
+
+ranks("r-renttype",[
+ {n:"Condo apartments",v:7.8,t:"−7.8%  $2,052"},
+ {n:"Houses, townhomes",v:7.4,t:"−7.4%  $2,016"},
+ {n:"All types",v:4.2,t:"−4.2%  $2,034",c:"a"},
+ {n:"Purpose-built",v:2.7,t:"−2.7%  $2,036",c:"g"}
+]);
+
+ranks("r-officeseg",[
+ {n:"Downtown B and C",v:23.8,t:"23.8%"},
+ {n:"Downtown, all",v:17.3,t:"17.3%"},
+ {n:"National",v:16.7,t:"16.7%",c:"a"},
+ {n:"Suburban",v:15.8,t:"15.8%"},
+ {n:"Downtown Class A",v:13.8,t:"13.8%",c:"g"},
+ {n:"Trophy",v:6.3,t:"6.3%",c:"g"}
+]);
+
+ranks("r-invest",[
+ {n:"Multifamily",v:6.9,t:"$6.9B  +67%",c:"g"},
+ {n:"Industrial",v:6.2,t:"$6.2B  +24%",c:"g"},
+ {n:"Office",v:2.7,t:"$2.7B  +61%",c:"g"}
+]);
+
+ranks("r-cities",[
+ {n:"Victoria",v:1265500,t:"$1,265,500"},
+ {n:"Vancouver",v:1161700,t:"$1,161,700"},
+ {n:"Toronto (GTA)",v:1081000,t:"$1,081,000"},
+ {n:"Hamilton–Burlington",v:799000,t:"$799,000"},
+ {n:"Barrie",v:769649,t:"$769,649"},
+ {n:"Kitchener–Waterloo",v:706240,t:"$706,240"},
+ {n:"Ottawa",v:685000,t:"$685,000"},
+ {n:"Montreal",v:615000,t:"$615,000"},
+ {n:"London–St. Thomas",v:603006,t:"$603,006"},
+ {n:"Calgary",v:554400,t:"$554,400"},
+ {n:"Kingston",v:549900,t:"$549,900  Jun"},
+ {n:"Windsor–Essex",v:528040,t:"$528,040"},
+ {n:"Quebec City",v:455000,t:"$455,000"},
+ {n:"Edmonton",v:449000,t:"$449,000"},
+ {n:"Winnipeg",v:438485,t:"$438,485"},
+ {n:"Halifax",v:435387,t:"$435,387"},
+ {n:"Saskatoon",v:417800,t:"$417,800"},
+ {n:"St. John's",v:410572,t:"$410,572  Jun"},
+ {n:"Regina",v:330600,t:"$330,600"}
+]);
+
+/* ---------- provincial table + tile map ---------- */
+var PROV=[
+ {ab:"BC",name:"British Columbia",x:0,y:1,p25:953314,ch:-0.6,bal:"balanced",st:25876,stch:-10},
+ {ab:"AB",name:"Alberta",x:1,y:1,p25:513042,ch:1.2,bal:"balanced",st:30557,stch:-16},
+ {ab:"SK",name:"Saskatchewan",x:2,y:1,p25:347970,ch:5.8,bal:"sellers",st:3946,stch:10},
+ {ab:"MB",name:"Manitoba",x:3,y:1,p25:390072,ch:4.4,bal:"balanced",st:5176,stch:21},
+ {ab:"ON",name:"Ontario",x:4,y:1,p25:835467,ch:-0.8,bal:"balanced",st:39823,stch:3},
+ {ab:"QC",name:"Quebec",x:5,y:1,p25:541661,ch:4.1,bal:"balanced",st:35030,stch:6},
+ {ab:"NL",name:"Nfld. & Labrador",x:6,y:1,p25:344826,ch:5.3,bal:"sellers",st:874,stch:29},
+ {ab:"NB",name:"New Brunswick",x:5,y:2,p25:347926,ch:3.7,bal:"sellers",st:3106,stch:-11},
+ {ab:"PE",name:"Prince Edward Island",x:6,y:2,p25:399682,ch:2.9,bal:"balanced",st:991,stch:-1},
+ {ab:"NS",name:"Nova Scotia",x:5,y:3,p25:471466,ch:2.5,bal:"balanced",st:4163,stch:-30},
+ {ab:"YT",name:"Yukon",x:0,y:0,na:true},
+ {ab:"NT",name:"Northwest Territories",x:1,y:0,na:true},
+ {ab:"NU",name:"Nunavut",x:2,y:0,na:true}
+];
+
+var tb=document.getElementById("tb-prov");
+if(tb){
+  var rowsData=[{name:"Canada",p25:679543,ch:1.1,st:149542,stch:-4}].concat(
+    PROV.filter(function(p){return !p.na;}).map(function(p){
+      return {name:p.name,p25:p.p25,ch:p.ch,st:p.st,stch:p.stch};}));
+  rowsData.forEach(function(r,i){
+    var tr=document.createElement("tr");
+    var cells=[r.name,money(r.p25),pct(r.ch),r.st.toLocaleString("en-CA"),pct(r.stch,0)];
+    cells.forEach(function(c,j){
+      var td=document.createElement("td");
+      if(j>0)td.className="n";
+      td.textContent=c;
+      if(j===0&&i===0)td.style.fontWeight="600";
+      if(j===2)td.style.color=r.ch<0?"var(--clay)":"var(--spruce)";
+      if(j===4)td.style.color=r.stch<0?"var(--clay)":"var(--spruce)";
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  });
+}
+
+var map=document.getElementById("tilemap"), legend=document.getElementById("maplegend");
+function shade(t){ var a=0.10+t*0.80; return "rgba(44,92,143,"+a.toFixed(2)+")"; }
+function diverge(v,scale){
+  var t=Math.min(Math.abs(v)/scale,1);
+  return v<0?"rgba(160,58,46,"+(0.14+t*0.70).toFixed(2)+")":"rgba(30,107,88,"+(0.12+t*0.72).toFixed(2)+")";
+}
+var currentMetric="price";
+function drawMap(metric){
+  if(!map)return;
+  currentMetric=metric;
+  var compact=window.innerWidth<860;
+  map.innerHTML="";
+  var withData=PROV.filter(function(p){return !p.na;});
+  var lo=Math.min.apply(null,withData.map(function(p){return p.p25;}));
+  var hi=Math.max.apply(null,withData.map(function(p){return p.p25;}));
+  PROV.forEach(function(p){
+    var d=document.createElement("div");
+    d.className="tile"+(p.na?" na":"");
+    if(!compact){ d.style.gridColumn=(p.x+1); d.style.gridRow=(p.y+1); }
+    var ab=document.createElement("span"); ab.className="ab"; ab.textContent=p.ab;
+    var tv=document.createElement("span"); tv.className="tv";
+    if(p.na){ tv.textContent="no data"; d.title=p.name+": not covered by these provincial tables"; }
+    else if(metric==="price"){
+      tv.textContent="$"+Math.round(p.p25/1000)+"k";
+      var t=(p.p25-lo)/(hi-lo);
+      d.style.background=shade(t);
+      if(t>0.62)d.style.color="#F7F9F9";
+      d.title=p.name+": 2025 average price "+money(p.p25);
+    } else if(metric==="change"){
+      tv.textContent=pct(p.ch);
+      d.style.background=diverge(p.ch,6);
+      if(Math.abs(p.ch)/6>0.6)d.style.color="#F7F9F9";
+      d.title=p.name+": CREA forecasts "+pct(p.ch)+" for 2026";
+    } else if(metric==="starts"){
+      tv.textContent=pct(p.stch,0);
+      d.style.background=diverge(p.stch,30);
+      if(Math.abs(p.stch)/30>0.6)d.style.color="#F7F9F9";
+      d.title=p.name+": "+p.st.toLocaleString("en-CA")+" starts to August, "+pct(p.stch,0)+" on 2025";
+    } else {
+      tv.textContent=p.bal==="sellers"?"seller lean":"balanced";
+      d.style.background=p.bal==="sellers"?"rgba(176,121,31,0.42)":"rgba(44,92,143,0.20)";
+      d.title=p.name+": "+(p.bal==="sellers"?"borderline sellers' market":"balanced market");
+    }
+    d.appendChild(ab); d.appendChild(tv); map.appendChild(d);
+  });
+  var lg="";
+  if(metric==="price") lg='<span><i style="background:'+shade(0.12)+'"></i>Lower</span><span><i style="background:'+shade(1)+'"></i>Higher</span><span>From $344,826 in Newfoundland and Labrador to $953,314 in British Columbia</span>';
+  else if(metric==="change") lg='<span><i style="background:rgba(160,58,46,.7)"></i>Falling</span><span><i style="background:rgba(30,107,88,.7)"></i>Rising</span><span>Saskatchewan leads at +5.8%; Ontario is weakest at −0.8%</span>';
+  else if(metric==="starts") lg='<span><i style="background:rgba(160,58,46,.7)"></i>Fewer</span><span><i style="background:rgba(30,107,88,.7)"></i>More</span><span>Change in January to August starts against 2025; Canada is down 4%</span>';
+  else lg='<span><i style="background:rgba(44,92,143,0.20)"></i>Balanced</span><span><i style="background:rgba(176,121,31,0.42)"></i>Borderline sellers</span><span>No province is in buyers’ market territory on national inventory measures</span>';
+  if(legend) legend.innerHTML=lg;
+}
+drawMap("price");
+var rz;
+window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){drawMap(currentMetric);},180);});
+Array.prototype.forEach.call(document.querySelectorAll(".switch button"),function(b){
+  b.addEventListener("click",function(){
+    Array.prototype.forEach.call(document.querySelectorAll(".switch button"),function(o){o.setAttribute("aria-pressed","false");});
+    b.setAttribute("aria-pressed","true");
+    drawMap(b.dataset.metric);
+  });
+});
+
+/* ---------- affordability ---------- */
+function minDown(price){
+  if(price<=500000)return price*0.05;
+  if(price<1500000)return 25000+(price-500000)*0.10;
+  return price*0.20;
+}
+function premiumRate(ltv){
+  if(ltv>0.90)return 0.04;
+  if(ltv>0.85)return 0.031;
+  if(ltv>0.80)return 0.028;
+  return 0;
+}
+function pay(principal,annualPct,years){
+  if(principal<=0)return 0;
+  var r=annualPct/100;
+  var m=Math.pow(1+r/2,1/6)-1;
+  var n=years*12;
+  if(m===0)return principal/n;
+  return principal*m/(1-Math.pow(1+m,-n));
+}
+function cell(kk,v,d){
+  return '<div class="cell"><div class="k">'+kk+'</div><div class="v">'+v+'</div><div class="d flat">'+(d||"")+'</div></div>';
+}
+function runCalc(){
+  var price=+document.getElementById("i-price").value||0;
+  var dpPct=+document.getElementById("i-down").value||0;
+  var rate=+document.getElementById("i-rate").value||0;
+  var amort=+document.getElementById("i-amort").value||25;
+  var tax=+document.getElementById("i-tax").value||0;
+  var out=document.getElementById("calcout"), note=document.getElementById("calcnote");
+  var dp=price*dpPct/100;
+  var req=minDown(price);
+  var base=price-dp;
+  var ltv=base/price;
+  var insurable=price<1500000;
+  var prem=(insurable&&ltv>0.80)?base*premiumRate(ltv):0;
+  var mortgage=base+prem;
+  var monthly=pay(mortgage,rate,amort);
+  var qRate=Math.max(rate+2,5.25);
+  var qMonthly=pay(mortgage,qRate,amort);
+  var heat=150;
+  var income=(qMonthly+tax/12+heat)*12/0.32;
+  out.innerHTML=
+    cell("Down payment",money(dp),dpPct+"% of price")+
+    cell("Mortgage amount",money(mortgage),prem>0?"Includes "+money(prem)+" insurance premium":"No insurance premium")+
+    cell("Monthly payment",money(monthly),"At "+rate.toFixed(2)+"% over "+amort+" years")+
+    cell("At the stress-test rate",money(qMonthly),"Qualifying at "+qRate.toFixed(2)+"%")+
+    cell("Household income needed",money(income),"32% gross debt service");
+  var msgs=[];
+  if(dp<req) msgs.push("A down payment of at least "+money(req)+" is required at this price under federal minimums.");
+  if(!insurable&&dpPct<20) msgs.push("Homes at $1.5 million or more cannot be insured, so 20% down is the minimum.");
+  if(amort>25&&ltv>0.80) msgs.push("Amortisations beyond 25 years on an insured mortgage are limited to first-time buyers and purchasers of new builds.");
+  msgs.push("Assumes $150 a month for heat and excludes condo fees, closing costs and any other debt, all of which reduce what a lender will advance.");
+  note.textContent=msgs.join(" ");
+}
+["i-price","i-down","i-rate","i-amort","i-tax"].forEach(function(id){
+  var e=document.getElementById(id); if(e){e.addEventListener("input",runCalc);}
+});
+runCalc();
+
+/* ---------- scrollspy ---------- */
+var links=Array.prototype.slice.call(document.querySelectorAll("nav.rail a"));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"));}).filter(Boolean);
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id);});
+      }
+    });
+  },{rootMargin:"-10% 0px -75% 0px"});
+  secs.forEach(function(s){io.observe(s);});
+}
+})();
+</script>
+</body>
+</html>
