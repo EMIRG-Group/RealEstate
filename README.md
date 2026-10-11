@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Canadian Real Estate Dashboard — September 2026</title>
+<title>Canadian Real Estate Dashboard — October 2026</title>
 <style>
 :root{
   --paper:#E7EBEC;
@@ -205,9 +205,9 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
   <div class="wrap">
     <h1 class="title">Canadian real estate, top to bottom</h1>
     <div class="stamp">
-      Compiled <b>14 September 2026</b><br>
-      Resale &amp; construction data through <b>July–August 2026</b><br>
-      Commercial data through <b>Q2 2026</b>
+      Compiled <b>11 October 2026</b><br>
+      Resale &amp; construction data through <b>August 2026</b><br>
+      Rental through <b>September</b>, commercial through <b>Q3 2026</b>
     </div>
   </div>
 </header>
@@ -217,10 +217,10 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <nav class="rail" aria-label="Sections">
   <ol>
     <li><a href="#status" class="on">Market status<span class="vintage">Where things stand</span></a></li>
-    <li><a href="#residential">Residential<span class="vintage">Jul–Aug 2026</span></a></li>
-    <li><a href="#rental">Rental<span class="vintage">Aug 2026</span></a></li>
-    <li><a href="#commercial">Commercial<span class="vintage">Q2 2026</span></a></li>
-    <li><a href="#capital">Capital markets<span class="vintage">Q2 2026</span></a></li>
+    <li><a href="#residential">Residential<span class="vintage">Aug 2026</span></a></li>
+    <li><a href="#rental">Rental<span class="vintage">Sept 2026</span></a></li>
+    <li><a href="#commercial">Commercial<span class="vintage">Q3 2026</span></a></li>
+    <li><a href="#capital">Capital markets<span class="vintage">H1 2026</span></a></li>
     <li><a href="#geography">Geography<span class="vintage">Provinces &amp; cities</span></a></li>
     <li><a href="#innovation">Policy &amp; innovation<span class="vintage">2026 pipeline</span></a></li>
     <li><a href="#affordability">Affordability tool<span class="vintage">Interactive</span></a></li>
@@ -234,71 +234,76 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <!-- ============ STATUS ============ -->
 <section id="status" class="hero">
   <div class="sechead">
-    <h2>Four markets, four different stories</h2>
-    <span class="asof">Pins show current position; grey marks show a year ago</span>
+    <h2>The rate story just flipped</h2>
+    <span class="asof">Pins show current position; grey marks show three months ago</span>
   </div>
-  <p class="lede">Canada does not have one real estate market right now, it has four moving independently. Resale housing has drifted back to <b>balance</b> after two years at the edges. Rental has swung to the <b>tenant's</b> side for the first time since 2019. Office is <b>tightening</b> for the first time since the pandemic. Industrial has stopped loosening. The common thread is supply, not demand.</p>
+  <p class="lede">For two years every forecast assumed the next move in rates was down. That assumption broke this autumn. Inflation reached 3%, bond yields pushed fixed mortgage rates up across all six big banks, and several major forecasters now expect the Bank of Canada to <b>raise</b> its policy rate on 28 October. Housing has gone quiet in response — sales and prices have been close to flat for four months. Commercial has gone the other way: office and industrial both tightened sharply in the third quarter, because almost nothing is being built.</p>
 
   <div class="meters">
     <div class="meter">
       <div class="mname">Resale housing</div>
-      <div class="mval">4.7 months of inventory, sales-to-new-listings 51.3%</div>
-      <div class="scale" role="img" aria-label="Resale housing sits in balanced territory, slightly tighter than a year ago">
+      <div class="mval">4.8 months of inventory, sales-to-new-listings 49.1%</div>
+      <div class="scale" role="img" aria-label="Resale housing is balanced but has drifted slightly toward buyers since the summer">
         <div class="track"></div>
         <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
-        <div class="ghost" style="left:62%"></div>
-        <div class="pin" style="left:52%"></div>
+        <div class="ghost" style="left:52%"></div>
+        <div class="pin" style="left:59%"></div>
       </div>
       <div class="mends"><span>Sellers</span><span>Balanced</span><span>Buyers</span></div>
-      <div class="mnote"><span class="dir flat">Balanced.</span> Tightest reading of 2026 so far.</div>
+      <div class="mnote"><span class="dir flat">Balanced, drifting.</span> Flat for four straight months.</div>
     </div>
     <div class="meter">
       <div class="mname">Purpose-built rental</div>
-      <div class="mval">Asking rents $2,035, down 23 straight months; vacancy 3.1%</div>
-      <div class="scale" role="img" aria-label="Rental has moved toward tenants' favour">
+      <div class="mval">Asking rents $2,034, down 24 straight months; vacancy 3.1%</div>
+      <div class="scale" role="img" aria-label="Rental still favours tenants but has begun to stabilise">
         <div class="track"></div>
         <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
-        <div class="ghost" style="left:45%"></div>
-        <div class="pin" style="left:76%"></div>
+        <div class="ghost" style="left:76%"></div>
+        <div class="pin" style="left:72%"></div>
       </div>
       <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
-      <div class="mnote"><span class="dir down">Loosening.</span> Record completions met slower population growth.</div>
+      <div class="mnote"><span class="dir flat">Bottoming.</span> Toronto and Vancouver have stopped falling.</div>
     </div>
     <div class="meter">
       <div class="mname">Office</div>
-      <div class="mval">17.1% vacancy, four consecutive quarters of positive absorption</div>
-      <div class="scale" role="img" aria-label="Office is still tenant-favourable but tightening quickly">
+      <div class="mval">16.7% vacancy, five consecutive quarters of positive absorption</div>
+      <div class="scale" role="img" aria-label="Office is tightening quickly though still tenant-favourable overall">
         <div class="track"></div>
         <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
-        <div class="ghost" style="left:88%"></div>
-        <div class="pin" style="left:74%"></div>
+        <div class="ghost" style="left:74%"></div>
+        <div class="pin" style="left:66%"></div>
       </div>
       <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
-      <div class="mnote"><span class="dir up">Tightening.</span> Trophy space is already at 9.4%.</div>
+      <div class="mnote"><span class="dir up">Tightening fast.</span> Trophy space is down to 6.3%.</div>
     </div>
     <div class="meter">
       <div class="mname">Industrial</div>
-      <div class="mval">5.5% availability, first quarterly decline since Q3 2022</div>
-      <div class="scale" role="img" aria-label="Industrial has stopped loosening and sits near balance">
+      <div class="mval">5.2% availability, biggest quarterly drop in five years</div>
+      <div class="scale" role="img" aria-label="Industrial has turned decisively toward landlords">
         <div class="track"></div>
         <div class="band" style="left:33%"></div><div class="band" style="left:67%"></div>
-        <div class="ghost" style="left:60%"></div>
-        <div class="pin" style="left:55%"></div>
+        <div class="ghost" style="left:55%"></div>
+        <div class="pin" style="left:44%"></div>
       </div>
       <div class="mends"><span>Landlord</span><span>Balanced</span><span>Tenant</span></div>
-      <div class="mnote"><span class="dir flat">Turning.</span> Direction hinges on CUSMA talks.</div>
+      <div class="mnote"><span class="dir up">Turned.</span> 10.3M sq. ft. absorbed, most since 2022.</div>
     </div>
   </div>
 
   <div class="strip c4">
-    <div class="cell"><div class="k">Policy rate</div><div class="v">2.25%</div><div class="d flat">Seventh hold, 2 Sept</div></div>
-    <div class="cell"><div class="k">Prime rate</div><div class="v">4.45%</div><div class="d flat">Unchanged since Oct 2025</div></div>
-    <div class="cell"><div class="k">Average home price</div><div class="v">$674,819</div><div class="d up">+0.2% year over year</div></div>
-    <div class="cell"><div class="k">MLS® HPI</div><div class="v">−3.3%</div><div class="d down">Year over year, July</div></div>
-    <div class="cell"><div class="k">Housing starts, 6-mo trend</div><div class="v">247,377</div><div class="d down">−0.5% from June</div></div>
-    <div class="cell"><div class="k">Average asking rent</div><div class="v">$2,035</div><div class="d down">−4.8% year over year</div></div>
-    <div class="cell"><div class="k">All-property cap rate</div><div class="v">6.58%</div><div class="d up">−3 bps in Q2</div></div>
-    <div class="cell"><div class="k">2026 investment forecast</div><div class="v">~$56B</div><div class="d up">Third highest on record</div></div>
+    <div class="cell"><div class="k">Policy rate</div><div class="v">2.25%</div><div class="d flat">Held since Oct 2025</div></div>
+    <div class="cell"><div class="k">CPI inflation</div><div class="v">3.0%</div><div class="d down">August, above target</div></div>
+    <div class="cell"><div class="k">Five-year fixed</div><div class="v">4.34%</div><div class="d down">Insured, rising since Sept</div></div>
+    <div class="cell"><div class="k">Average home price</div><div class="v">$668,219</div><div class="d up">+0.6% year over year</div></div>
+    <div class="cell"><div class="k">MLS® HPI</div><div class="v">−3.0%</div><div class="d down">Year over year, August</div></div>
+    <div class="cell"><div class="k">Housing starts, 6-mo trend</div><div class="v">244,149</div><div class="d down">−1.3% from July</div></div>
+    <div class="cell"><div class="k">Average asking rent</div><div class="v">$2,034</div><div class="d down">−4.2% year over year</div></div>
+    <div class="cell"><div class="k">H1 investment volume</div><div class="v">$24.1B</div><div class="d up">+19% year over year</div></div>
+  </div>
+
+  <div class="panel" style="margin-top:20px;border-left:3px solid var(--clay)">
+    <h4>What changed since September</h4>
+    <p style="margin-bottom:0">Four things. Inflation hit 3% and the rate debate inverted — UBS, Manulife, Oxford Economics and Scotiabank have all moved to calling an October hike, while RBC calls it a close call. Fixed mortgage rates rose 10 to 50 basis points across the big six since early September. Office vacancy fell again to 16.7% with the largest quarterly drop in sublease space since 2005. And industrial absorption of 10.3 million sq. ft. was the strongest quarter since 2022, ending any question about whether that market had bottomed.</p>
   </div>
 </section>
 
@@ -306,17 +311,17 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <section id="residential">
   <div class="sechead">
     <h2>Residential</h2>
-    <span class="asof">CREA, July 2026 package released 18 August; August board data preliminary</span>
+    <span class="asof">CREA, August 2026 package released 15 September; September data due 16 October</span>
   </div>
-  <p class="lede">Sales have risen for four consecutive months while new listings fell for three, which is what pulled the market back toward balance. Prices are not rising, they have stopped falling: the national HPI ticked up 0.1% in July after a long run of monthly declines, and its annual drop narrowed to 3.3%. <b>Ontario and British Columbia are the only regions where prices are lower than a year ago.</b> Everywhere else is still grinding higher.</p>
+  <p class="lede">August broke the summer's run of gains: sales slipped 0.7% while new listings rose 3.3%, ending three months of declining supply. The sales-to-new-listings ratio fell to 49.1%, the loosest reading of the year. Prices did not move — the HPI was flat month over month and is down 3.0% on the year. <b>CREA's own read is that the economy, not the housing market, is now the problem</b>: rising inflation risk, higher fixed mortgage rates, and doubts about the durability of growth are expected to weigh on momentum into 2027.</p>
 
   <div class="strip c3">
-    <div class="cell"><div class="k">Sales, July</div><div class="v">43,578</div><div class="d"><span class="up">+0.5% m/m</span> <span class="down">−5.3% y/y</span></div></div>
-    <div class="cell"><div class="k">Active listings</div><div class="v">205,388</div><div class="d flat">+0.6% y/y, near average</div></div>
-    <div class="cell"><div class="k">Months of inventory</div><div class="v">4.7</div><div class="d flat">Long-run average 5.0</div></div>
-    <div class="cell"><div class="k">Sales to new listings</div><div class="v">51.3%</div><div class="d flat">Balanced is 45–65%</div></div>
+    <div class="cell"><div class="k">Sales, August</div><div class="v">−0.7%</div><div class="d"><span class="down">m/m, and −6.9% y/y</span></div></div>
+    <div class="cell"><div class="k">Active listings</div><div class="v">~200k</div><div class="d flat">+1.4% y/y</div></div>
+    <div class="cell"><div class="k">Months of inventory</div><div class="v">4.8</div><div class="d flat">Fourth month unchanged</div></div>
+    <div class="cell"><div class="k">Sales to new listings</div><div class="v">49.1%</div><div class="d down">From 51.1% in July</div></div>
     <div class="cell"><div class="k">2026 sales forecast</div><div class="v">463,336</div><div class="d down">−1.4% on 2025</div></div>
-    <div class="cell"><div class="k">2027 sales forecast</div><div class="v">484,242</div><div class="d up">+4.5%, still below 2021</div></div>
+    <div class="cell"><div class="k">2027 sales forecast</div><div class="v">480,567</div><div class="d up">+3.7%, still below 2021</div></div>
   </div>
 
   <h3 class="sub">Price and volume, 1980 to 2027</h3>
@@ -334,9 +339,9 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
       <div class="legend"><span><i style="background:var(--steel)"></i>Actual</span><span><i style="background:var(--steel);opacity:.45"></i>Forecast</span></div>
     </div>
   </div>
-  <p class="lede" style="margin-top:18px">The long view matters for reading today's numbers. The average price peaked at <b>$706,466 in 2022</b> and has stayed within roughly 4% of that level every year since, so the post-2022 story is stagnation rather than a crash. Volumes are the softer half of the picture: five years after the 2021 peak, transaction counts are still running roughly 30% below it.</p>
+  <p class="lede" style="margin-top:18px">The long view matters for reading today's numbers. The average price peaked at <b>$706,466 in 2022</b> and has stayed within roughly 4% of that level every year since, so the post-2022 story is stagnation rather than a crash. Volumes are the softer half of the picture: five years after the 2021 peak, transaction counts are still running roughly 30% below it, and CREA's forecast does not bring them back within the decade's range before 2028.</p>
 
-  <h3 class="sub">New supply is shrinking even as completions hold up</h3>
+  <h3 class="sub">New supply keeps shrinking</h3>
   <div class="cols two">
     <div class="chart">
       <h4>Housing starts, monthly seasonally adjusted annual rate</h4>
@@ -345,51 +350,45 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
     </div>
     <div class="panel plain">
       <div class="strip c3" style="margin-top:0">
-        <div class="cell"><div class="k">Actual starts, July</div><div class="v">18,834</div><div class="d down">−19% year over year</div></div>
-        <div class="cell"><div class="k">Year to date</div><div class="v">131,851</div><div class="d down">−4% on 2025</div></div>
-        <div class="cell"><div class="k">Under construction</div><div class="v">373,091</div><div class="d flat">−0.6% from June</div></div>
-        <div class="cell"><div class="k">Completions, July</div><div class="v">19,773</div><div class="d up">+8.1% from June</div></div>
-        <div class="cell"><div class="k">Permitted, not started</div><div class="v">141,480</div><div class="d up">+3% from June</div></div>
-        <div class="cell"><div class="k">Single-detached share</div><div class="v">18%</div><div class="d flat">Of the six-month trend</div></div>
+        <div class="cell"><div class="k">Actual starts, August</div><div class="v">17,691</div><div class="d down">−2% year over year</div></div>
+        <div class="cell"><div class="k">Year to date</div><div class="v">149,542</div><div class="d down">−4% on 2025</div></div>
+        <div class="cell"><div class="k">Under construction</div><div class="v">371,658</div><div class="d down">−0.4% from July</div></div>
+        <div class="cell"><div class="k">Completions, August</div><div class="v">17,550</div><div class="d down">−11.2% from July</div></div>
+        <div class="cell"><div class="k">Permitted, not started</div><div class="v">142,423</div><div class="d up">+0.7% from July</div></div>
+        <div class="cell"><div class="k">Monthly annual rate</div><div class="v">229,046</div><div class="d flat">Flat on July</div></div>
       </div>
-      <p class="lede" style="margin:16px 0 0;font-size:13.5px">CMHC's read: the pipeline already under way is substantial and completions are rising, but fewer projects are being launched, particularly in Vancouver, Calgary and Toronto. Starts are likely to stay subdued for the rest of the year. The 141,480 permitted-but-unstarted units are the clearest measure of projects that pencil on paper but not in practice.</p>
+      <p class="lede" style="margin:16px 0 0;font-size:13.5px">CMHC's deputy chief economist expects the downward trend to continue, with construction moderating further toward year-end. The regional split has shifted since the summer: Toronto's six-month trend is now flat, while Vancouver and Montreal are both up 6% on multi-unit starts. The 142,423 permitted-but-unstarted units keep growing — projects that clear approval but not the financing test.</p>
     </div>
   </div>
 
-  <h3 class="sub">Where starts are actually happening</h3>
-  <div class="panel plain">
-    <div class="ranks" id="r-starts"></div>
-    <p class="src" style="margin-top:12px">Year-to-date starts, January to July 2026, centres of 10,000 or more, with the change on the same period of 2025. Quebec and Ontario are carrying national multi-unit activity; Alberta has given back a fifth of its volume.</p>
-  </div>
-
-  <h3 class="sub">The condominium problem</h3>
+  <h3 class="sub">The condominium problem, and its mirror image</h3>
   <div class="cols three">
     <div class="panel">
-      <span class="tag watch">Toronto</span>
-      <h4>156 condo starts in six months</h4>
-      <p>The City of Toronto started 156 condominium units in the first half of 2026, against an average of roughly 7,000 for a half-year. New condo sales across the Greater Toronto and Hamilton area fell 52% year over year in Q1 to a 35-year low.</p>
+      <span class="tag res">A floor, finally</span>
+      <h4>First sales gain since 2023</h4>
+      <p>GTHA new condo sales rose 52% year over year in the second quarter to 702 units — the first annual increase since Q3 2023. Sales of completed, developer-held units more than tripled to 535, helped by bulk deals with investment groups. The level is still 86% below the ten-year average for a second quarter.</p>
     </div>
     <div class="panel">
-      <span class="tag watch">Pricing gap</span>
-      <h4>$1,189 new versus $859 resale</h4>
-      <p>Developers were asking $1,189 per square foot for standing inventory in Q1, down 5% on the year but still a wide premium over the $859 per square foot fetched by comparable resale units. Until that gap closes, presale centres stay empty.</p>
+      <span class="tag watch">Still stuck</span>
+      <h4>$1,186 new versus $830 resale</h4>
+      <p>Developer-held completed inventory hit a record 5,001 units, up 68% on the year. Asking prices on that standing stock averaged $1,186 per square foot — a 43% premium over recently registered resale product at $830. Pre-construction sales fell 80% to just 50 units.</p>
     </div>
     <div class="panel">
-      <span class="tag watch">Inventory</span>
-      <h4>4,295 finished and unsold</h4>
-      <p>Completed unsold units in Toronto more than doubled in a year, equal to roughly 92 months of supply at the current sales pace, with a further 8,629 unsold units under construction. In British Columbia, 124 presale units sold in all of Q1.</p>
+      <span class="tag watch">The hole ahead</span>
+      <h4>Pipeline down 62% from peak</h4>
+      <p>Combined pre-construction and under-construction inventory fell 37% year over year to 48,710 units, against a 2022 peak near 127,000. Construction starts totalled 448 units, no new projects launched for a second straight quarter, and 11,653 units have been cancelled since the start of 2024.</p>
     </div>
   </div>
-  <p class="lede" style="margin-top:18px">This is the part of the market that turns into a supply problem later. Urbanation projects GTA condo completions falling from about 29,600 in 2025 to 21,850 this year, then to roughly 13,000 by 2028 — and a one-year federal HST rebate on qualifying new homes under $1 million, running 1 April 2026 to 31 March 2027, is expected to take about $100,000 off unsold new condo pricing. Capital is already circling: one Montreal developer has launched a $500 million program to buy unsold Toronto units in bulk at $700–$800 per square foot and convert them to rentals.</p>
+  <p class="lede" style="margin-top:18px">Ontario's enhanced HST rebate — up to $130,000 on new homes under $1 million, with royal assent on 18 June 2026 — is what moved completed inventory. It is also why pre-construction collapsed: to qualify, construction must start before 31 March 2027 and be substantially complete by 31 December 2029, which almost no new launch can meet. The policy cleared the shelf and emptied the pipeline at the same time.</p>
 </section>
 
 <!-- ============ RENTAL ============ -->
 <section id="rental">
   <div class="sechead">
     <h2>Rental</h2>
-    <span class="asof">Rentals.ca and Urbanation, August 2026; vacancy from CMHC's annual survey</span>
+    <span class="asof">Rentals.ca and Urbanation, September 2026; vacancy from CMHC's annual survey</span>
   </div>
-  <p class="lede">Asking rents have now fallen year over year for <b>23 consecutive months</b>. August's $2,035 is the lowest August reading since 2022 and leaves rents about 7% below where they stood two years ago. The spring rebound — four straight monthly gains — stalled, with August slipping 0.1% from July.</p>
+  <p class="lede">September marked <b>two full years</b> of falling asking rents, the longest run in the report's recent history. At $2,034 the national average is 7.3% below two years ago and 9.2% off the May 2024 peak of $2,202. But the monthly decline was a single dollar, and Toronto and Vancouver — which lead the national series — have been trending higher for six months after bottoming at five-year lows.</p>
 
   <div class="cols two">
     <div class="chart">
@@ -398,22 +397,14 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
       <div id="c-rent"></div>
     </div>
     <div class="panel plain">
-      <div class="cols two" style="gap:14px">
-        <div class="panel">
-          <h4>Why rents fell</h4>
-          <p>Purpose-built vacancy rose to 3.1% from 2.2%, above its ten-year average, as record rental completions met slower population growth. Nearly 373,100 units were under construction in July alone.</p>
-        </div>
-        <div class="panel">
-          <h4>What is holding up</h4>
-          <p>Purpose-built apartments are the most resilient segment, and three-bedroom units are close to flat year over year. Montreal and Toronto posted the smallest annual declines among the six largest markets, at 1.1% and 1.4%.</p>
-        </div>
-      </div>
-      <div class="strip c3" style="margin-top:14px">
+      <h4 class="mini">Annual decline by property type, September 2026</h4>
+      <div class="ranks" id="r-renttype"></div>
+      <div class="strip c3" style="margin-top:16px">
         <div class="cell"><div class="k">Purpose-built vacancy</div><div class="v">3.1%</div><div class="d down">Up from 2.2% in 2024</div></div>
-        <div class="cell"><div class="k">Two-year rent change</div><div class="v">−7%</div><div class="d down">Lowest August since 2022</div></div>
-        <div class="cell"><div class="k">Rent per sq. ft., six largest</div><div class="v">$2.54</div><div class="d flat">Flat year over year</div></div>
+        <div class="cell"><div class="k">Below May 2024 peak</div><div class="v">−9.2%</div><div class="d down">Peak was $2,202</div></div>
+        <div class="cell"><div class="k">Rent per sq. ft.</div><div class="v">$2.48</div><div class="d down">−1.5% y/y, six largest</div></div>
       </div>
-      <p class="lede" style="margin:14px 0 0;font-size:13.5px">The structural picture has not changed: Canada is still short of housing. What changed is timing. A wave of rental supply approved when rent growth expectations were far higher is landing into a softer labour market, and cancelled condo projects are being converted to purpose-built rental, adding more.</p>
+      <p class="lede" style="margin:14px 0 0;font-size:13.5px">Supply drove the correction, and the provincial spread shows it: Ontario is down 4.8% and British Columbia 2.9%, while Nova Scotia and Saskatchewan are both up 1.4%. Urbanation now points to an upcoming return to positive rent growth, on the reasoning that where Toronto and Vancouver go, the rest of the country follows.</p>
     </div>
   </div>
 </section>
@@ -422,55 +413,55 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <section id="commercial">
   <div class="sechead">
     <h2>Commercial</h2>
-    <span class="asof">CBRE Q2 2026 figures; retail from the H1 2026 rent survey</span>
+    <span class="asof">CBRE Q3 2026 office and industrial figures; retail from the H1 2026 rent survey</span>
   </div>
-  <p class="lede">The commercial story of 2026 is that nobody is building. Office construction sits at a two-decade low, industrial starts have thinned, and new retail is tied to mixed-use projects that have largely stalled. Demand has not boomed — it has simply stopped shrinking, and against a frozen supply pipeline that is enough to tighten every sector at once.</p>
+  <p class="lede">Commercial is now the strong half of Canadian real estate, and the reason is arithmetic rather than exuberance. Office construction sits near a 22-year low with no significant completions expected until <b>2032</b>. Industrial deliveries this year will be the lowest in eight. Against a frozen pipeline, ordinary demand is enough to tighten everything at once.</p>
 
   <h3 class="sub">Office</h3>
   <div class="cols two">
     <div class="chart">
       <h4>National office vacancy</h4>
-      <div class="cap">Year-end readings, with Q2 2026 as the latest point. The pre-pandemic benchmark was 10.9%.</div>
+      <div class="cap">Year-end readings, with the last two quarters added. The pre-pandemic benchmark was 10.9%.</div>
       <div id="c-office"></div>
     </div>
     <div class="panel plain">
       <div class="strip c3" style="margin-top:0">
-        <div class="cell"><div class="k">National vacancy</div><div class="v">17.1%</div><div class="d up">From 18.7% a year ago</div></div>
-        <div class="cell"><div class="k">Trophy vacancy</div><div class="v">9.4%</div><div class="d up">100 bps above pre-2020</div></div>
-        <div class="cell"><div class="k">Q2 net absorption</div><div class="v">1.2M</div><div class="d up">Sq. ft., fourth positive quarter</div></div>
-        <div class="cell"><div class="k">Sublease space</div><div class="v">&lt;10M</div><div class="d up">Sq. ft., 12th straight decline</div></div>
-        <div class="cell"><div class="k">Under construction</div><div class="v">1.2M</div><div class="d down">Sq. ft., two-decade low</div></div>
-        <div class="cell"><div class="k">Removed since 2021</div><div class="v">12.1M</div><div class="d flat">Sq. ft. converted or demolished</div></div>
+        <div class="cell"><div class="k">National vacancy</div><div class="v">16.7%</div><div class="d up">Down again in Q3</div></div>
+        <div class="cell"><div class="k">Trophy vacancy</div><div class="v">6.3%</div><div class="d up">Six-year low</div></div>
+        <div class="cell"><div class="k">Q3 net absorption</div><div class="v">2.0M</div><div class="d up">Sq. ft., fifth positive quarter</div></div>
+        <div class="cell"><div class="k">Sublease space</div><div class="v">&lt;9.0M</div><div class="d up">Sq. ft., 50.2% off peak</div></div>
+        <div class="cell"><div class="k">Under construction</div><div class="v">1.4M</div><div class="d down">Sq. ft., 23.2% pre-leased</div></div>
+        <div class="cell"><div class="k">Removed since 2021</div><div class="v">12.6M</div><div class="d flat">Sq. ft., 2.7% of inventory</div></div>
       </div>
-      <p class="lede" style="margin:16px 0 0;font-size:13.5px">Seven of eleven markets recorded positive absorption in Q2, led by Toronto, Calgary and Montreal at more than 300,000 sq. ft. each — with most Toronto activity coming from the suburbs this quarter rather than the core. Conversions and demolitions have cut national inventory by 2.6% since 2021, and are projected to outpace new deliveries fivefold through 2030. This is a market being right-sized from the supply end.</p>
+      <p class="lede" style="margin:16px 0 0;font-size:13.5px">Nine of eleven markets posted positive absorption, with downtown vacancy falling in eight — Toronto led at 90 basis points. Vancouver was the outlier, pushed up by a single tech tenant consolidating. Sublease space fell 1.3 million sq. ft., the largest quarterly drop since 2005. The pipeline ticked up for the first time in four years but is only 23.2% pre-leased, down from over 60% a year ago.</p>
     </div>
   </div>
 
-  <h4 class="mini" style="margin-top:22px">Office vacancy by market, most recent readings</h4>
+  <h4 class="mini" style="margin-top:22px">The gap inside the office market, Q3 2026</h4>
   <div class="panel plain">
-    <div class="ranks" id="r-office"></div>
-    <p class="src" style="margin-top:12px">Q2 2026 where published, otherwise year-end 2025. Ottawa is the outlier moving the wrong way, with four consecutive quarters of rising vacancy despite federal return-to-office mandates.</p>
+    <div class="ranks" id="r-officeseg"></div>
+    <p class="src" style="margin-top:12px">Best-in-class space is effectively full while older stock is not recovering. Trophy vacancy is 6.3% nationally — 2.7% in Toronto and 3.0% in Montreal — against 23.8% for downtown Class B and C. CBRE's read is that B and C vacancy is improving mainly because obsolete buildings are being removed, not because they are leasing.</p>
   </div>
 
   <h3 class="sub">Industrial, retail and the rest</h3>
   <div class="cols three">
     <div class="panel">
       <span class="tag com">Industrial</span>
-      <h4>Availability turns at 5.5%</h4>
-      <p>The national availability rate fell 10 basis points in Q2, its first decline since Q3 2022, with nine of eleven markets flat or tightening. Net absorption was 3.9 million sq. ft. in the quarter and 7.8 million year to date. Asking net rents have been sliding — $14.91 per sq. ft. in Q1, down 3.7% on the year — and the pipeline is holding in the mid-20 million sq. ft. range.</p>
-      <p><b>The swing factor is trade.</b> CUSMA negotiations will decide whether momentum runs positive or negative into 2027.</p>
+      <h4>The turn arrived in force</h4>
+      <p>Availability fell 30 basis points to 5.2%, the largest quarterly decline in five years, with eight of eleven markets tightening. Net absorption of 10.3 million sq. ft. was the strongest quarter since 2022 and 3.7 times the trailing three-year average, bringing the year to 18.8 million. Calgary alone took 3.8 million sq. ft., its second-best quarter on record; Edmonton was the only negative market.</p>
+      <p style="margin-bottom:0">Rents are still falling but more slowly: $14.77 per sq. ft., down 2.4% against Q2's 3.8%. Deliveries this year will total 19.3 million sq. ft., the lowest in eight years.</p>
     </div>
     <div class="panel">
       <span class="tag com">Retail</span>
-      <h4>Tight, and quietly the strongest sector</h4>
-      <p>Vacancy stayed tight through the first half of 2026, especially in grocery-anchored suburban centres, with available space effectively at capacity in several high-growth corridors. Demand keeps shifting toward services — medical, fitness, personal care and quick-service food — while experiential and entertainment tenants backfill large-format boxes.</p>
-      <p>New supply is the constraint: retail delivery is tied to mixed-use development, which has slowed sharply.</p>
+      <h4>Tight, and quietly dependable</h4>
+      <p>Vacancy stayed tight through the first half, especially in grocery-anchored suburban centres, with available space effectively at capacity in several high-growth corridors. Demand keeps shifting toward services — medical, fitness, personal care and quick-service food — while experiential tenants backfill large-format boxes.</p>
+      <p style="margin-bottom:0">New supply is the constraint: retail delivery is tied to mixed-use development, which has slowed to a crawl.</p>
     </div>
     <div class="panel">
       <span class="tag com">Multifamily and seniors</span>
-      <h4>Transition year, then a squeeze</h4>
-      <p>2026 is a transition year for multifamily as softer demand and continued deliveries lift vacancy. Seniors housing is the opposite trade: an ageing population is driving double-digit rent growth while new construction stays limited, because market rents still sit well below what new builds need to pencil.</p>
-      <p>Expect competition for seniors assets to intensify as more investors try to enter.</p>
+      <h4>One softening, one squeezed</h4>
+      <p>Multifamily is in a transition year as softer rental demand and continued deliveries lift vacancy — though it was also the largest single destination for investment capital in the first half, at $6.9 billion.</p>
+      <p style="margin-bottom:0">Seniors housing is the opposite trade: an ageing population is driving double-digit rent growth while construction stays limited, because market rents still sit below what new builds need to pencil. Competition for those assets is intensifying.</p>
     </div>
   </div>
 </section>
@@ -479,63 +470,65 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <section id="capital">
   <div class="sechead">
     <h2>Capital markets</h2>
-    <span class="asof">CBRE cap rate survey Q2 2026; volumes from CBRE and Altus Group</span>
+    <span class="asof">Volumes from Altus Group, H1 2026; cap rates from CBRE's Q2 2026 survey</span>
   </div>
-  <p class="lede">Cap rates appear to have peaked. The national all-property average has compressed three quarters running, to <b>6.58%</b>, and the spread over the Government of Canada ten-year sits at 320 basis points — within its long-run range, though bond yields have been volatile since the Middle East conflict pushed energy prices higher. Capital is active but selective, concentrating in high-quality assets with durable income.</p>
+  <p class="lede">Transaction volume is running well ahead of last year. First-half investment reached <b>$24.1 billion, up 19%</b>, excluding the Alberta markets where data was incomplete. That puts the year on track for CBRE's roughly $56 billion forecast, which would be the third-highest total on record. Cap rates appear to have peaked: the national all-property average compressed to 6.58% in the second quarter, with a 320 basis point spread over the Canada ten-year.</p>
 
   <div class="cols two">
     <div class="panel plain">
-      <div class="strip c3" style="margin-top:0">
-        <div class="cell"><div class="k">All-property cap rate</div><div class="v">6.58%</div><div class="d up">−3 bps quarter over quarter</div></div>
-        <div class="cell"><div class="k">Spread to GoC 10-year</div><div class="v">320</div><div class="d flat">Basis points</div></div>
-        <div class="cell"><div class="k">2025 investment volume</div><div class="v">~$47B</div><div class="d flat">In line with pre-2020</div></div>
-        <div class="cell"><div class="k">2026 forecast</div><div class="v">~$56B</div><div class="d up">Sales volume +8%</div></div>
-        <div class="cell"><div class="k">Q1 2026 volume</div><div class="v">$10.7B</div><div class="d up">+5% year over year</div></div>
-        <div class="cell"><div class="k">Q1 office investment</div><div class="v">+158%</div><div class="d up">Year over year</div></div>
+      <h4 class="mini">First-half investment by sector</h4>
+      <div class="ranks" id="r-invest"></div>
+      <p class="src" style="margin-top:12px">H1 2026 volume and year-over-year change, excluding Alberta. By region, the GTA took $10.2 billion, up 41%, with Montreal at $5.7 billion and Ottawa at $1.7 billion. Vancouver was the exception, down 23%.</p>
+      <div class="strip c3" style="margin-top:16px">
+        <div class="cell"><div class="k">All-property cap rate</div><div class="v">6.58%</div><div class="d up">Q2, third quarter of compression</div></div>
+        <div class="cell"><div class="k">Spread to GoC 10-year</div><div class="v">320</div><div class="d flat">Basis points, Q2</div></div>
+        <div class="cell"><div class="k">2026 volume forecast</div><div class="v">~$56B</div><div class="d up">Third highest on record</div></div>
       </div>
-      <p class="lede" style="margin:16px 0 0;font-size:13.5px">Where yields moved in Q2, they moved down: seniors housing and retail led the compression, office and industrial saw smaller declines, and multifamily and hotel were effectively flat. The notable shift is who is buying. After a year in which capital funnelled into safe-haven assets, institutional participation is broadening again, and office has gone from untouchable to contested.</p>
     </div>
     <div class="panel">
       <h4>What the money is chasing</h4>
-      <p style="margin-bottom:10px"><b>Office, unexpectedly.</b> Toronto office investment rose 262% year over year in Q1 as investors returned to urban office at a pace not seen since before the pandemic. The bet is arithmetic: no meaningful new supply arrives after 2027.</p>
-      <p style="margin-bottom:10px"><b>Data centres.</b> Microsoft has committed roughly $7.5 billion to Canadian cloud and AI infrastructure with its first new facility due in the second half of 2026. Around Toronto, a 112 MW project on Langstaff Road anchors a broader corridor of roughly 360 MW planned long term, and a 27 MW closed-loop colocation facility reaches service this year.</p>
-      <p style="margin-bottom:0"><b>Distressed condo inventory.</b> Institutional and government-backed buyers are stepping into the gap individual investors vacated, acquiring unsold units in bulk for rental conversion.</p>
+      <p style="margin-bottom:10px"><b>Office, still the surprise.</b> Office investment rose 61% in the first half. The bet is supply arithmetic: with 1.4 million sq. ft. under construction and nothing significant delivering before 2032, today's best buildings have no future competition.</p>
+      <p style="margin-bottom:10px"><b>Multifamily, at scale.</b> At $6.9 billion and up 67%, apartments were the single largest sector. Softer rents have not deterred buyers underwriting a supply cliff three years out.</p>
+      <p style="margin-bottom:10px"><b>Data centres.</b> Microsoft has committed roughly $7.5 billion to Canadian cloud and AI infrastructure with its first new facility due in the second half of this year. Around Toronto, a 112 MW project on Langstaff Road anchors a corridor of roughly 360 MW planned long term.</p>
+      <p style="margin-bottom:0"><b>Distressed condo inventory.</b> Bulk buyers tripled their take of completed developer-held units, converting ownership stock to rental.</p>
     </div>
   </div>
+  <p class="src" style="margin-top:16px">Cap rate figures are the most recent published, covering the second quarter. CBRE's Q3 cap rate survey is expected later this month, and the sharp move in bond yields since September makes it the number to watch.</p>
 </section>
 
 <!-- ============ GEOGRAPHY ============ -->
 <section id="geography">
   <div class="sechead">
     <h2>Geography</h2>
-    <span class="asof">Provincial forecasts from CREA, updated 15 July 2026; city figures from local boards</span>
+    <span class="asof">Prices and forecasts from CREA; starts from CMHC, January to August 2026</span>
   </div>
-  <p class="lede">The decade-long pattern has inverted. British Columbia and Ontario — the two provinces that drove national price growth for most of the 2010s — are the only two forecast to see prices <b>fall</b> this year. Atlantic Canada, Quebec and the Prairies have now carried national price growth for three consecutive years.</p>
+  <p class="lede">The decade-long pattern has inverted. British Columbia and Ontario — the two provinces that drove national price growth through the 2010s — are the only two CREA forecasts to see prices <b>fall</b> this year. Atlantic Canada, Quebec and the Prairies have now carried national price growth for three consecutive years. Construction tells a different regional story again: Alberta has given back 16% of its starts while Manitoba is up 21%.</p>
 
   <div class="mapwrap">
     <div class="switch" role="group" aria-label="Choose what the map shows">
-      <button type="button" data-metric="price" aria-pressed="true">Average price, 2026</button>
-      <button type="button" data-metric="change" aria-pressed="false">Price change, 2026</button>
+      <button type="button" data-metric="price" aria-pressed="true">Average price, 2025</button>
+      <button type="button" data-metric="change" aria-pressed="false">Price forecast, 2026</button>
+      <button type="button" data-metric="starts" aria-pressed="false">Housing starts</button>
       <button type="button" data-metric="balance" aria-pressed="false">Market balance</button>
     </div>
     <div class="tiles" id="tilemap"></div>
     <div class="maplegend" id="maplegend"></div>
-    <p class="src" style="margin-top:12px">Provinces are arranged geographically on wide screens and west to east on narrow ones, never to scale. Territories are excluded from CREA's provincial forecast. Balance readings reflect CREA's July commentary on inventory conditions.</p>
+    <p class="src" style="margin-top:12px">Provinces are arranged geographically on wide screens and west to east on narrow ones, never to scale. Territories are excluded from CREA's provincial forecast and from CMHC's provincial starts table. Balance readings reflect CREA's commentary on inventory conditions through August.</p>
   </div>
 
   <h3 class="sub">Provincial detail</h3>
   <div class="tbl-scroll">
     <table>
-      <caption>2025 values are actual. 2026 and 2027 are CREA forecasts. Percentage change is for 2026.</caption>
-      <thead><tr><th>Region</th><th>2025 actual</th><th>2026 forecast</th><th>Change</th><th>2027 forecast</th></tr></thead>
+      <caption>Average price is the 2025 actual; the forecast change is CREA's for 2026. Starts cover January to August 2026 in centres of 10,000 or more.</caption>
+      <thead><tr><th>Region</th><th>2025 average price</th><th>2026 price forecast</th><th>Starts, Jan–Aug</th><th>Change</th></tr></thead>
       <tbody id="tb-prov"></tbody>
     </table>
   </div>
 
-  <h3 class="sub">Cities, most recent board readings</h3>
+  <h3 class="sub">Cities, July 2026 board readings</h3>
   <div class="panel plain">
     <div class="ranks" id="r-cities"></div>
-    <p class="src" style="margin-top:12px">July 2026 unless noted. Boards report on different bases — some average sale price, some benchmark, some median — so treat this as a directional comparison rather than a like-for-like ranking. The spread from Victoria to Regina is roughly $935,000.</p>
+    <p class="src" style="margin-top:12px">These are July 2026 figures, the last month for which a comparable set was compiled across boards; several boards have since reported August and September. Boards also report on different bases — some average sale price, some benchmark, some median — so treat this as a directional ranking rather than a like-for-like comparison. The spread from Victoria to Regina is roughly $935,000.</p>
   </div>
 </section>
 
@@ -543,24 +536,24 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
 <section id="innovation">
   <div class="sechead">
     <h2>Policy and innovation</h2>
-    <span class="asof">Federal measures as of the Spring Economic Update 2026 and Royal Assent, June 2026</span>
+    <span class="asof">Federal measures through the Spring Economic Update 2026 and Royal Assent, June 2026</span>
   </div>
-  <p class="lede">The most consequential change in Canadian housing is institutional rather than technological. Ottawa has stopped subsidising demand and started acting as a buyer, on the theory that a factory-built housing industry needs guaranteed customers more than it needs grants.</p>
+  <p class="lede">The most consequential change in Canadian housing is institutional rather than technological. Ottawa has stopped subsidising demand and started acting as a buyer, on the theory that a factory-built housing industry needs guaranteed customers more than it needs grants. Whether that scales is still an open question — the Parliamentary Budget Officer puts Build Canada Homes at about <b>26,000 units over five years</b>, roughly 3.7% of what it estimates is needed to restore affordability.</p>
 
   <div class="cols two">
     <div class="panel">
       <span class="tag res">Build Canada Homes</span>
       <h4>A Crown corporation with a purchase order</h4>
-      <p style="margin-bottom:10px">Launched September 2025 with $13 billion in initial capitalisation; the enabling Act received Royal Assent in June 2026. Alongside that sit $1 billion in equity and $25 billion in debt financing aimed specifically at Canadian prefabricated builders.</p>
-      <p style="margin-bottom:10px">Six federal Direct Build sites — Toronto, Winnipeg, Edmonton, Ottawa, Dartmouth and Longueuil — break ground in the second half of 2026 for up to about 4,000 homes, with procurement explicitly favouring modular and factory-built construction.</p>
-      <p style="margin-bottom:0">The volume is small. The mechanism is the point: modular factories fail not on technology but on throughput, and a forward order book measured in years is the one thing the private market has never been able to produce on its own.</p>
+      <p style="margin-bottom:10px">Launched September 2025 with $13 billion in initial capitalisation; the enabling Act received Royal Assent in June 2026. Alongside it sit $1 billion in equity and $25 billion in debt financing aimed at Canadian prefabricated builders.</p>
+      <p style="margin-bottom:10px">Six federal Direct Build sites — Toronto, Winnipeg, Edmonton, Ottawa, Dartmouth and Longueuil — break ground this half for up to about 4,000 homes, with procurement explicitly favouring modular and factory-built construction.</p>
+      <p style="margin-bottom:0">The volume is small and the PBO's projection makes that plain. The mechanism is the point: modular factories fail on throughput rather than technology, and a forward order book measured in years is the one thing the private market has never produced on its own.</p>
     </div>
     <div class="panel">
       <span class="tag res">Spending and rules</span>
       <h4>What changed for buyers and builders</h4>
       <p style="margin-bottom:10px"><b>$6 billion</b> to recruit, train and hire skilled trades workers nationally, plus <b>$41.9 million over five years</b> from 2026–27 to streamline National Model Codes and speed approvals for modular and factory-built housing.</p>
       <p style="margin-bottom:10px">More than <b>$7 billion</b> in low-cost lending accelerated through the Apartment Construction Loan Program, supporting up to 16,500 rental homes in British Columbia alone.</p>
-      <p style="margin-bottom:10px">A full HST rebate on qualifying new homes up to <b>$1 million</b> runs 1 April 2026 to 31 March 2027.</p>
+      <p style="margin-bottom:10px">In Ontario, an enhanced rebate of up to <b>$130,000</b> on new homes under $1 million, in force since June. Its 2027 and 2029 construction deadlines are now shaping which projects move.</p>
       <p style="margin-bottom:0">Unchanged: the stress test at contract rate plus two points, the $1.5 million insured mortgage cap, and 30-year amortisations for first-time buyers and new builds.</p>
     </div>
   </div>
@@ -585,17 +578,17 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
   <div class="cols two">
     <div class="panel plain">
       <h4 class="mini">Office inventory is being permanently reduced</h4>
-      <p class="src" style="margin-bottom:16px">12.1 million sq. ft. converted or demolished since 2021, cutting national stock by 2.6%. Removals are projected to outpace deliveries fivefold through 2030. Vacancy is falling partly because the denominator is shrinking.</p>
+      <p class="src" style="margin-bottom:16px">Conversions have removed 9.6 million sq. ft. since 2021 and demolitions a further 3.0 million, cutting national stock by 2.7%. Vacancy is falling partly because the denominator is shrinking — and CBRE now expects no significant new completions before 2032.</p>
       <h4 class="mini">Rental is absorbing the condo market's failure</h4>
-      <p class="src" style="margin-bottom:16px">Cancelled presale projects are being converted to purpose-built rental at scale. That softens rents now and deepens the ownership-supply hole around 2028–29.</p>
-      <h4 class="mini">AI infrastructure is a new property type in Canada</h4>
+      <p class="src" style="margin-bottom:16px">Cancelled presale projects are converting to purpose-built rental, and bulk buyers are moving completed ownership stock into the rental pool. That softens rents now and deepens the ownership-supply hole around 2028–29.</p>
+      <h4 class="mini">AI infrastructure is a new property type here</h4>
       <p class="src" style="margin-bottom:0">Power availability, not land, is becoming the binding constraint on industrial-adjacent development in the Toronto and Montreal corridors.</p>
     </div>
     <div class="panel plain">
       <h4 class="mini">Demographics are reshaping the bid</h4>
       <p class="src" style="margin-bottom:16px">Seniors housing has the strongest fundamentals of any asset class and the least new supply, because construction costs sit above what current rents justify.</p>
       <h4 class="mini">Regional convergence is under way</h4>
-      <p class="src" style="margin-bottom:0">Saskatchewan and Newfoundland lead price growth this year while British Columbia and Ontario decline. Affordability, not amenity, is now the strongest predictor of where prices rise — and 30 years of interprovincial price divergence is starting to unwind.</p>
+      <p class="src" style="margin-bottom:0">Saskatchewan and Newfoundland lead price growth this year while British Columbia and Ontario decline. Affordability, not amenity, is now the strongest predictor of where prices rise, and three decades of interprovincial divergence are starting to unwind.</p>
     </div>
   </div>
 </section>
@@ -606,13 +599,13 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
     <h2>Affordability tool</h2>
     <span class="asof">Illustrative only — not a mortgage quote</span>
   </div>
-  <p class="lede">Payments are shown on a Canadian semi-annual compounding basis. The qualifying figure applies the federal stress test, which requires borrowers to qualify at the higher of their contract rate plus two percentage points or 5.25%. Income required assumes a 32% gross debt service ratio and includes property tax and heat estimates.</p>
+  <p class="lede">Payments use Canadian semi-annual compounding. The qualifying figure applies the federal stress test, which requires borrowers to qualify at the higher of their contract rate plus two percentage points or 5.25%. Income required assumes a 32% gross debt service ratio including property tax and heat. The default rate is the roughly 4.34% available on insured five-year fixed mortgages through brokers in early October — bank posted specials run higher, around 4.79% to 5.14%.</p>
 
   <div class="panel">
     <div class="calc">
-      <div><label for="i-price">Purchase price</label><input id="i-price" type="number" value="674819" min="50000" step="5000"></div>
+      <div><label for="i-price">Purchase price</label><input id="i-price" type="number" value="668219" min="50000" step="5000"></div>
       <div><label for="i-down">Down payment (%)</label><input id="i-down" type="number" value="20" min="5" max="100" step="1"></div>
-      <div><label for="i-rate">Contract rate (%)</label><input id="i-rate" type="number" value="4.29" min="0.5" max="15" step="0.01"></div>
+      <div><label for="i-rate">Contract rate (%)</label><input id="i-rate" type="number" value="4.34" min="0.5" max="15" step="0.01"></div>
       <div><label for="i-amort">Amortisation (years)</label><input id="i-amort" type="number" value="25" min="5" max="30" step="1"></div>
       <div><label for="i-tax">Property tax (yearly)</label><input id="i-tax" type="number" value="4200" min="0" step="100"></div>
     </div>
@@ -633,36 +626,36 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
       <h4 class="mini">What could move the market</h4>
       <div class="risks">
         <div class="risk hot">
-          <div class="lvl">Rate risk<br>Elevated</div>
-          <div><h4>The next move may be up</h4><p>After September's decision flagged increased upside inflation risk, market pricing and the major bank forecasts point to a hold through year-end with the first <em>increase</em> debated for 2027, rather than a return to cuts. Crude above $100 keeps that live.</p></div>
+          <div class="lvl">Rate risk<br>High</div>
+          <div><h4>A hike is now the base case for several forecasters</h4><p>UBS, Manulife, Oxford Economics and Scotiabank have all moved to calling an increase on 28 October; UBS and Manulife see a second by January. RBC holds near term and calls the decision a close call. Two quarter-point moves would put the policy rate at 2.75%.</p></div>
         </div>
         <div class="risk hot">
-          <div class="lvl">Trade<br>Elevated</div>
-          <div><h4>New US tariffs and counter-measures</h4><p>Trade talks broke down, new tariffs and proportionate Canadian counter-tariffs are in place, and CUSMA negotiations will set industrial leasing direction for 2027. Construction input costs are directly exposed.</p></div>
+          <div class="lvl">Inflation<br>High</div>
+          <div><h4>CPI at 3% and expected higher</h4><p>August inflation reached the top of the Bank's control range, driven by energy. UBS projects 3.3% when September data lands on 19 October. That print is the single biggest input into the rate decision nine days later.</p></div>
+        </div>
+        <div class="risk hot">
+          <div class="lvl">Credit<br>Elevated</div>
+          <div><h4>Fixed mortgage rates are rising again</h4><p>All six big banks raised select fixed rates between early September and early October, by 10 to 50 basis points. Borrowers renewing into this now face a higher floor than they did three months ago, and the stress test compounds it.</p></div>
         </div>
         <div class="risk">
-          <div class="lvl">Credit<br>Moderate</div>
-          <div><h4>Mortgage renewals at higher rates</h4><p>Borrowers who last qualified in a very different rate environment continue to roll over. The stress test limits the damage but not the payment shock.</p></div>
-        </div>
-        <div class="risk">
-          <div class="lvl">Supply<br>Moderate</div>
-          <div><h4>A construction air pocket around 2028</h4><p>Weak starts today become weak completions in three years, just as the current pipeline empties. Rental relief now is borrowed from later.</p></div>
+          <div class="lvl">Trade<br>Moderate</div>
+          <div><h4>Tariffs and CUSMA</h4><p>US tariffs and Canadian counter-measures remain in place. Industrial absorption has been strong regardless, but construction input costs stay directly exposed.</p></div>
         </div>
         <div class="risk cool">
-          <div class="lvl">Demand<br>Watch</div>
-          <div><h4>Slower population growth</h4><p>A temporary decline in total population from immigration policy changes is already visible in rental absorption, and is the main reason GDP growth is forecast near 1.3% for 2026.</p></div>
+          <div class="lvl">Supply<br>Watch</div>
+          <div><h4>A construction air pocket around 2028</h4><p>Weak starts today become weak completions in three years, just as the current pipeline empties. In the GTHA condo market the cliff is already visible: inventory down 62% from its 2022 peak. Rental relief now is borrowed from later.</p></div>
         </div>
       </div>
     </div>
     <div class="panel plain">
       <h4 class="mini">Scheduled data</h4>
       <div class="cal">
-        <div class="calrow"><span class="when">15 Sept 2026</span><div><b>CREA August statistics package</b><small>Tomorrow. Board-level data already points to national sales down 6.9% year over year and an average price near $668,351.</small></div></div>
-        <div class="calrow"><span class="when">16 Sept 2026</span><div><b>CMHC August housing starts</b><small>Released 8:15 ET. Watch whether the six-month trend holds near 247,000.</small></div></div>
-        <div class="calrow"><span class="when">Early Oct 2026</span><div><b>Rentals.ca September rent report</b><small>The test of whether the seasonal peak has fully rolled over.</small></div></div>
-        <div class="calrow"><span class="when">Early Oct 2026</span><div><b>CBRE Q3 figures, office and industrial</b><small>A fifth consecutive positive office quarter would confirm the recovery is structural.</small></div></div>
-        <div class="calrow"><span class="when">28 Oct 2026</span><div><b>Bank of Canada decision and Monetary Policy Report</b><small>The first full forecast since July, and the clearest read on whether hold turns to hike.</small></div></div>
-        <div class="calrow"><span class="when">H2 2026</span><div><b>Build Canada Homes Direct Build groundbreakings</b><small>Six federal sites, up to 4,000 homes, modular-first procurement.</small></div></div>
+        <div class="calrow"><span class="when">16 Oct 2026</span><div><b>CREA September statistics package</b><small>Whether four flat months became five, and whether higher fixed rates have shown up in sales yet.</small></div></div>
+        <div class="calrow"><span class="when">16 Oct 2026</span><div><b>CMHC September housing starts</b><small>Released 8:15 ET. The six-month trend has slipped to 244,149 and CMHC expects further moderation.</small></div></div>
+        <div class="calrow"><span class="when">19 Oct 2026</span><div><b>Statistics Canada September CPI</b><small>The decisive input. UBS projects 3.3% against 3.0% in August.</small></div></div>
+        <div class="calrow"><span class="when">Late Oct 2026</span><div><b>CBRE Q3 cap rates and investment insights</b><small>First read on whether September's bond move has reached property pricing.</small></div></div>
+        <div class="calrow"><span class="when">28 Oct 2026</span><div><b>Bank of Canada decision and Monetary Policy Report</b><small>Hold or hike, plus the first full forecast since July.</small></div></div>
+        <div class="calrow"><span class="when">Early Nov 2026</span><div><b>Rentals.ca October rent report</b><small>Urbanation expects a return to positive rent growth. This is where it would first appear.</small></div></div>
       </div>
     </div>
   </div>
@@ -674,24 +667,26 @@ footer{border-top:1px solid var(--ink);margin-top:30px;padding:18px 0 46px;font-
   <p class="lede">Every figure here comes from a primary release rather than secondary coverage of it, and each carries the period it covers. Where a number is a forecast it is labelled as one. All amounts are Canadian dollars.</p>
   <div class="cols two">
     <ul class="src">
-      <li><b>Resale housing:</b> Canadian Real Estate Association, July 2026 statistics package (released 18 August 2026) and quarterly forecast (updated 15 July 2026). August provincial board data is preliminary.</li>
-      <li><b>Construction:</b> CMHC Starts and Completions Survey, July 2026 data released 18 August 2026, plus the Fall 2026 Housing Supply Report.</li>
-      <li><b>Rental:</b> Rentals.ca and Urbanation National Rent Report, August 2026; vacancy from CMHC's annual Rental Market Report.</li>
+      <li><b>Resale housing:</b> Canadian Real Estate Association, August 2026 statistics package (released 15 September 2026) and quarterly forecast (updated 15 July 2026).</li>
+      <li><b>Construction:</b> CMHC Starts and Completions Survey, August 2026 data released 16 September 2026, plus the Fall 2026 Housing Supply Report.</li>
+      <li><b>Rental:</b> Rentals.ca and Urbanation National Rent Report, September 2026 (released 7 October); vacancy from CMHC's annual Rental Market Report.</li>
+      <li><b>Condominiums:</b> Urbanation Q2 2026 GTHA condominium market data.</li>
     </ul>
     <ul class="src">
-      <li><b>Commercial:</b> CBRE Canada Q2 2026 Office and Industrial Figures, H1 2026 Retail Rent Survey, Q2 2026 Cap Rates and Investment Insights, and the 2026 Canada Real Estate Market Outlook. Supplementary volume data from Altus Group.</li>
-      <li><b>Rates and macro:</b> Bank of Canada rate decision of 2 September 2026 and July 2026 Monetary Policy Report.</li>
-      <li><b>Condominium detail:</b> Urbanation Q1 2026 condo market data as reported in trade press; CMHC Housing Supply Report.</li>
+      <li><b>Commercial:</b> CBRE Canada Q3 2026 Office and Industrial Figures, H1 2026 Retail Rent Survey, Q2 2026 Cap Rates and Investment Insights, and the 2026 Canada Real Estate Market Outlook.</li>
+      <li><b>Investment volumes:</b> Altus Group Canadian Commercial Real Estate Market Update, Q2 2026. Alberta data was incomplete at publication and is excluded.</li>
+      <li><b>Rates and macro:</b> Bank of Canada decision of 2 September 2026; Statistics Canada CPI; bank forecasts as reported in early October 2026.</li>
+      <li><b>Policy:</b> Parliamentary Budget Officer report on Build Canada Homes; federal Spring Economic Update 2026.</li>
     </ul>
   </div>
-  <p class="src" style="margin-top:14px">A national average blends Vancouver and Regina into one number and describes the price of a home nowhere in particular. City figures come from different boards on different bases in different months. Nothing here is investment, legal or mortgage advice.</p>
+  <p class="src" style="margin-top:14px">A national average blends Vancouver and Regina into one number and describes the price of a home nowhere in particular. City figures come from different boards on different bases in different months. Monthly figures are revised between releases, so series shown here may not match later-published versions. Nothing here is investment, legal or mortgage advice.</p>
 </section>
 
 </main>
 </div>
 
 <footer>
-  <div class="wrap">Canadian real estate dashboard. Data current to 14 September 2026 — figures move monthly, so check the source releases before relying on any single number.</div>
+  <div class="wrap">Canadian real estate dashboard. Data current to 11 October 2026 — figures move monthly, and with a Bank of Canada decision on 28 October this one will date faster than most. Check the source releases before relying on any single number.</div>
 </footer>
 
 <script>
@@ -701,6 +696,7 @@ var NS="http://www.w3.org/2000/svg";
 function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
 function money(v){return "$"+Math.round(v).toLocaleString("en-CA");}
 function k(v){return Math.round(v/1000)+"k";}
+function pct(v,dp){return (v>0?"+":"−")+Math.abs(v).toFixed(dp===undefined?1:dp)+"%";}
 
 /* ---------- generic line chart ---------- */
 function lineChart(id,opt){
@@ -757,38 +753,38 @@ function lineChart(id,opt){
 }
 
 /* ---------- data ---------- */
-var YEARS=[],PRICE=[67007,76035,72455,76839,76494,80421,94113,110194,129841,147278,142750,149015,150468,153616,158853,151556,151936,156102,153797,159251,165220,173079,190047,208600,227329,250183,278117,307921,305988,321224,339909,363584,364733,383798,408656,442734,490855,511480,491174,503681,569294,690637,706466,680539,687341,679543,686710,700000];
-var SALES=[162253,163104,153812,180579,193090,251903,266279,272525,308808,313333,243003,291432,317058,293790,294110,259073,324460,329867,313492,332906,331358,378797,417129,432042,457688,483536,484476,522111,432126,466238,447624,457836,455062,458216,484643,509994,543168,518890,463340,494377,557239,669877,499288,444007,479272,470314,463336,484242];
+var YEARS=[],PRICE=[67007,76035,72455,76839,76494,80421,94113,110194,129841,147278,142750,149015,150468,153616,158853,151556,151936,156102,153797,159251,165220,173079,190047,208600,227329,250183,278117,307921,305988,321224,339909,363584,364733,383798,408656,442734,490855,511480,491174,503681,569294,690637,706466,680539,687341,679543,686710,694164];
+var SALES=[162253,163104,153812,180579,193090,251903,266279,272525,308808,313333,243003,291432,317058,293790,294110,259073,324460,329867,313492,332906,331358,378797,417129,432042,457688,483536,484476,522111,432126,466238,447624,457836,455062,458216,484643,509994,543168,518890,463340,494377,557239,669877,499288,444007,479272,470314,463336,480567];
 for(var yy=1980;yy<=2027;yy++)YEARS.push(String(yy));
 var fIdx=YEARS.indexOf("2025");
 
 lineChart("c-price",{values:PRICE,labels:YEARS,color:"#1E6B58",dashFrom:fIdx,
   xTicks:[0,10,20,30,40,47],yTicks:[100000,300000,500000,700000],
   yFmt:function(v,full){return full?money(v):"$"+k(v);},
-  alt:"National average home price rose from about $67,000 in 1980 to a peak of $706,466 in 2022 and is forecast near $700,000 in 2027."});
+  alt:"National average home price rose from about $67,000 in 1980 to a peak of $706,466 in 2022 and is forecast at $694,164 in 2027."});
 
 lineChart("c-sales",{values:SALES,labels:YEARS,color:"#2C5C8F",dashFrom:fIdx,
   xTicks:[0,10,20,30,40,47],yTicks:[200000,350000,500000,650000],
   yFmt:function(v,full){return full?Math.round(v).toLocaleString("en-CA"):k(v);},
-  alt:"Annual home sales peaked at 669,877 in 2021 and are forecast at 484,242 in 2027."});
+  alt:"Annual home sales peaked at 669,877 in 2021 and are forecast at 480,567 in 2027."});
 
-lineChart("c-starts",{values:[250961,235852,278380,261377,240773,229074],
-  labels:["February","March","April","May","June","July"],color:"#1E6B58",dots:true,
-  xTicks:[0,1,2,3,4,5],yTicks:[230000,250000,270000],
+lineChart("c-starts",{values:[250961,235852,278380,261377,240773,229360,229046],
+  labels:["February","March","April","May","June","July","August"],color:"#1E6B58",dots:true,
+  xTicks:[0,1,2,3,4,5,6],yTicks:[230000,250000,270000],
   yFmt:function(v,full){return full?Math.round(v).toLocaleString("en-CA")+" units":k(v);},
-  alt:"Housing starts annual rate fell from 278,380 in April to 229,074 in July 2026."});
+  alt:"Housing starts annual rate fell from 278,380 in April to 229,046 in August 2026."});
 
-lineChart("c-rent",{values:[2137,2060,2057,2030,2008,2027,2037,2035],
-  labels:["Aug 2025","Dec 2025","Jan 2026","Feb 2026","Mar 2026","Apr 2026","Jul 2026","Aug 2026"],
-  color:"#2C5C8F",dots:true,xTicks:[0,2,4,6,7],yTicks:[2000,2050,2100,2150],
+lineChart("c-rent",{values:[2137,2060,2057,2030,2008,2027,2037,2035,2034],
+  labels:["Aug 2025","Dec 2025","Jan 2026","Feb 2026","Mar 2026","Apr 2026","Jul 2026","Aug 2026","Sep 2026"],
+  color:"#2C5C8F",dots:true,xTicks:[0,2,4,6,8],yTicks:[2000,2050,2100,2150],
   yFmt:function(v){return "$"+v;},
-  alt:"Average asking rent fell from $2,137 in August 2025 to a low of $2,008 in March 2026 and sits at $2,035 in August 2026."});
+  alt:"Average asking rent fell from $2,137 in August 2025 to a low of $2,008 in March 2026 and sits at $2,034 in September 2026."});
 
-lineChart("c-office",{values:[10.9,18.7,18.0,17.1],
-  labels:["End 2019","End 2024","End 2025","Q2 2026"],color:"#2C5C8F",dots:true,
-  xTicks:[0,1,2,3],yTicks:[11,14,17,19],
+lineChart("c-office",{values:[10.9,18.7,18.0,17.1,16.7],
+  labels:["End 2019","End 2024","End 2025","Q2 2026","Q3 2026"],color:"#2C5C8F",dots:true,
+  xTicks:[0,1,2,3,4],yTicks:[11,14,17,19],
   yFmt:function(v){return v.toFixed(0)+"%";},
-  alt:"National office vacancy rose from 10.9% in 2019 to 18.7% in 2024 and has fallen to 17.1% by mid-2026."});
+  alt:"National office vacancy rose from 10.9% in 2019 to 18.7% in 2024 and has fallen to 16.7% by the third quarter of 2026."});
 
 /* ---------- ranked bars ---------- */
 function ranks(id,items,cls){
@@ -807,28 +803,26 @@ function ranks(id,items,cls){
   });
 }
 
-ranks("r-starts",[
- {n:"Ontario",v:35941,t:"35,941  +7%",c:"g"},
- {n:"Quebec",v:31376,t:"31,376  +4%",c:"g"},
- {n:"Alberta",v:26118,t:"26,118  −19%"},
- {n:"British Columbia",v:22498,t:"22,498  −10%"},
- {n:"Manitoba",v:4782,t:"4,782  +37%",c:"g"},
- {n:"Nova Scotia",v:3627,t:"3,627  −33%"},
- {n:"Saskatchewan",v:3307,t:"3,307  +4%",c:"g"},
- {n:"New Brunswick",v:2525,t:"2,525  −11%"},
- {n:"P.E.I.",v:933,t:"933  +15%",c:"g"},
- {n:"Nfld. & Lab.",v:744,t:"744  +28%",c:"g"}
+ranks("r-renttype",[
+ {n:"Condo apartments",v:7.8,t:"−7.8%  $2,052"},
+ {n:"Houses, townhomes",v:7.4,t:"−7.4%  $2,016"},
+ {n:"All types",v:4.2,t:"−4.2%  $2,034",c:"a"},
+ {n:"Purpose-built",v:2.7,t:"−2.7%  $2,036",c:"g"}
 ]);
 
-ranks("r-office",[
- {n:"London",v:26.2,t:"26.2%  2025",c:"a"},
- {n:"Calgary",v:25.9,t:"25.9%  2025",c:"a"},
- {n:"Montreal",v:18.0,t:"18.0%  Q2 26"},
- {n:"Toronto",v:18.0,t:"18.0%  2025"},
- {n:"National",v:17.1,t:"17.1%  Q2 26",c:"g"},
- {n:"Ottawa",v:15.0,t:"15.0%  Q2 26",c:"a"},
- {n:"Vancouver",v:11.6,t:"11.6%  2025",c:"g"},
- {n:"Halifax",v:9.0,t:"9.0%  Q2 26",c:"g"}
+ranks("r-officeseg",[
+ {n:"Downtown B and C",v:23.8,t:"23.8%"},
+ {n:"Downtown, all",v:17.3,t:"17.3%"},
+ {n:"National",v:16.7,t:"16.7%",c:"a"},
+ {n:"Suburban",v:15.8,t:"15.8%"},
+ {n:"Downtown Class A",v:13.8,t:"13.8%",c:"g"},
+ {n:"Trophy",v:6.3,t:"6.3%",c:"g"}
+]);
+
+ranks("r-invest",[
+ {n:"Multifamily",v:6.9,t:"$6.9B  +67%",c:"g"},
+ {n:"Industrial",v:6.2,t:"$6.2B  +24%",c:"g"},
+ {n:"Office",v:2.7,t:"$2.7B  +61%",c:"g"}
 ]);
 
 ranks("r-cities",[
@@ -855,16 +849,16 @@ ranks("r-cities",[
 
 /* ---------- provincial table + tile map ---------- */
 var PROV=[
- {ab:"BC",name:"British Columbia",x:0,y:1,p25:953314,p26:975154,ch:-0.6,p27:992067,bal:"balanced"},
- {ab:"AB",name:"Alberta",x:1,y:1,p25:513042,p26:519078,ch:1.2,p27:524657,bal:"balanced"},
- {ab:"SK",name:"Saskatchewan",x:2,y:1,p25:347970,p26:368021,ch:5.8,p27:379894,bal:"sellers"},
- {ab:"MB",name:"Manitoba",x:3,y:1,p25:390072,p26:407268,ch:4.4,p27:415766,bal:"balanced"},
- {ab:"ON",name:"Ontario",x:4,y:1,p25:835467,p26:842151,ch:-0.8,p27:855108,bal:"balanced"},
- {ab:"QC",name:"Quebec",x:5,y:1,p25:541661,p26:563673,ch:4.1,p27:585750,bal:"balanced"},
- {ab:"NL",name:"Nfld. & Labrador",x:6,y:1,p25:344826,p26:363165,ch:5.3,p27:371977,bal:"sellers"},
- {ab:"NB",name:"New Brunswick",x:5,y:2,p25:347926,p26:360920,ch:3.7,p27:367477,bal:"sellers"},
- {ab:"PE",name:"Prince Edward Island",x:6,y:2,p25:399682,p26:411442,ch:2.9,p27:419260,bal:"balanced"},
- {ab:"NS",name:"Nova Scotia",x:5,y:3,p25:471466,p26:483073,ch:2.5,p27:489412,bal:"balanced"},
+ {ab:"BC",name:"British Columbia",x:0,y:1,p25:953314,ch:-0.6,bal:"balanced",st:25876,stch:-10},
+ {ab:"AB",name:"Alberta",x:1,y:1,p25:513042,ch:1.2,bal:"balanced",st:30557,stch:-16},
+ {ab:"SK",name:"Saskatchewan",x:2,y:1,p25:347970,ch:5.8,bal:"sellers",st:3946,stch:10},
+ {ab:"MB",name:"Manitoba",x:3,y:1,p25:390072,ch:4.4,bal:"balanced",st:5176,stch:21},
+ {ab:"ON",name:"Ontario",x:4,y:1,p25:835467,ch:-0.8,bal:"balanced",st:39823,stch:3},
+ {ab:"QC",name:"Quebec",x:5,y:1,p25:541661,ch:4.1,bal:"balanced",st:35030,stch:6},
+ {ab:"NL",name:"Nfld. & Labrador",x:6,y:1,p25:344826,ch:5.3,bal:"sellers",st:874,stch:29},
+ {ab:"NB",name:"New Brunswick",x:5,y:2,p25:347926,ch:3.7,bal:"sellers",st:3106,stch:-11},
+ {ab:"PE",name:"Prince Edward Island",x:6,y:2,p25:399682,ch:2.9,bal:"balanced",st:991,stch:-1},
+ {ab:"NS",name:"Nova Scotia",x:5,y:3,p25:471466,ch:2.5,bal:"balanced",st:4163,stch:-30},
  {ab:"YT",name:"Yukon",x:0,y:0,na:true},
  {ab:"NT",name:"Northwest Territories",x:1,y:0,na:true},
  {ab:"NU",name:"Nunavut",x:2,y:0,na:true}
@@ -872,17 +866,19 @@ var PROV=[
 
 var tb=document.getElementById("tb-prov");
 if(tb){
-  var rowsData=[{name:"Canada",p25:679543,p26:686710,ch:1.1,p27:700000}].concat(
-    PROV.filter(function(p){return !p.na;}).map(function(p){return {name:p.name,p25:p.p25,p26:p.p26,ch:p.ch,p27:p.p27};}));
+  var rowsData=[{name:"Canada",p25:679543,ch:1.1,st:149542,stch:-4}].concat(
+    PROV.filter(function(p){return !p.na;}).map(function(p){
+      return {name:p.name,p25:p.p25,ch:p.ch,st:p.st,stch:p.stch};}));
   rowsData.forEach(function(r,i){
     var tr=document.createElement("tr");
-    var cells=[r.name,money(r.p25),money(r.p26),(r.ch>0?"+":"\u2212")+Math.abs(r.ch).toFixed(1)+"%",money(r.p27)];
+    var cells=[r.name,money(r.p25),pct(r.ch),r.st.toLocaleString("en-CA"),pct(r.stch,0)];
     cells.forEach(function(c,j){
       var td=document.createElement("td");
       if(j>0)td.className="n";
       td.textContent=c;
       if(j===0&&i===0)td.style.fontWeight="600";
-      if(j===3)td.style.color=r.ch<0?"var(--clay)":"var(--spruce)";
+      if(j===2)td.style.color=r.ch<0?"var(--clay)":"var(--spruce)";
+      if(j===4)td.style.color=r.stch<0?"var(--clay)":"var(--spruce)";
       tr.appendChild(td);
     });
     tb.appendChild(tr);
@@ -890,9 +886,10 @@ if(tb){
 }
 
 var map=document.getElementById("tilemap"), legend=document.getElementById("maplegend");
-function shade(t){ // 0..1 -> steel ramp
-  var a=0.10+t*0.80;
-  return "rgba(44,92,143,"+a.toFixed(2)+")";
+function shade(t){ var a=0.10+t*0.80; return "rgba(44,92,143,"+a.toFixed(2)+")"; }
+function diverge(v,scale){
+  var t=Math.min(Math.abs(v)/scale,1);
+  return v<0?"rgba(160,58,46,"+(0.14+t*0.70).toFixed(2)+")":"rgba(30,107,88,"+(0.12+t*0.72).toFixed(2)+")";
 }
 var currentMetric="price";
 function drawMap(metric){
@@ -901,26 +898,31 @@ function drawMap(metric){
   var compact=window.innerWidth<860;
   map.innerHTML="";
   var withData=PROV.filter(function(p){return !p.na;});
-  var lo=Math.min.apply(null,withData.map(function(p){return p.p26;}));
-  var hi=Math.max.apply(null,withData.map(function(p){return p.p26;}));
+  var lo=Math.min.apply(null,withData.map(function(p){return p.p25;}));
+  var hi=Math.max.apply(null,withData.map(function(p){return p.p25;}));
   PROV.forEach(function(p){
     var d=document.createElement("div");
     d.className="tile"+(p.na?" na":"");
     if(!compact){ d.style.gridColumn=(p.x+1); d.style.gridRow=(p.y+1); }
     var ab=document.createElement("span"); ab.className="ab"; ab.textContent=p.ab;
     var tv=document.createElement("span"); tv.className="tv";
-    if(p.na){ tv.textContent="no forecast"; d.title=p.name+": not covered by CREA's provincial forecast"; }
+    if(p.na){ tv.textContent="no data"; d.title=p.name+": not covered by these provincial tables"; }
     else if(metric==="price"){
-      tv.textContent="$"+Math.round(p.p26/1000)+"k";
-      d.style.background=shade((p.p26-lo)/(hi-lo));
-      if((p.p26-lo)/(hi-lo)>0.62){d.style.color="#F7F9F9";}
-      d.title=p.name+": average price forecast "+money(p.p26)+" for 2026";
+      tv.textContent="$"+Math.round(p.p25/1000)+"k";
+      var t=(p.p25-lo)/(hi-lo);
+      d.style.background=shade(t);
+      if(t>0.62)d.style.color="#F7F9F9";
+      d.title=p.name+": 2025 average price "+money(p.p25);
     } else if(metric==="change"){
-      tv.textContent=(p.ch>0?"+":"\u2212")+Math.abs(p.ch).toFixed(1)+"%";
-      var t=Math.min(Math.abs(p.ch)/6,1);
-      d.style.background=p.ch<0?"rgba(160,58,46,"+(0.15+t*0.7).toFixed(2)+")":"rgba(30,107,88,"+(0.12+t*0.72).toFixed(2)+")";
-      if(t>0.6)d.style.color="#F7F9F9";
-      d.title=p.name+": forecast price change of "+(p.ch>0?"+":"\u2212")+Math.abs(p.ch).toFixed(1)+"% in 2026";
+      tv.textContent=pct(p.ch);
+      d.style.background=diverge(p.ch,6);
+      if(Math.abs(p.ch)/6>0.6)d.style.color="#F7F9F9";
+      d.title=p.name+": CREA forecasts "+pct(p.ch)+" for 2026";
+    } else if(metric==="starts"){
+      tv.textContent=pct(p.stch,0);
+      d.style.background=diverge(p.stch,30);
+      if(Math.abs(p.stch)/30>0.6)d.style.color="#F7F9F9";
+      d.title=p.name+": "+p.st.toLocaleString("en-CA")+" starts to August, "+pct(p.stch,0)+" on 2025";
     } else {
       tv.textContent=p.bal==="sellers"?"seller lean":"balanced";
       d.style.background=p.bal==="sellers"?"rgba(176,121,31,0.42)":"rgba(44,92,143,0.20)";
@@ -929,9 +931,10 @@ function drawMap(metric){
     d.appendChild(ab); d.appendChild(tv); map.appendChild(d);
   });
   var lg="";
-  if(metric==="price") lg='<span><i style="background:'+shade(0.12)+'"></i>Lower</span><span><i style="background:'+shade(1)+'"></i>Higher</span><span>Range: $368k in Saskatchewan to $975k in British Columbia</span>';
+  if(metric==="price") lg='<span><i style="background:'+shade(0.12)+'"></i>Lower</span><span><i style="background:'+shade(1)+'"></i>Higher</span><span>From $344,826 in Newfoundland and Labrador to $953,314 in British Columbia</span>';
   else if(metric==="change") lg='<span><i style="background:rgba(160,58,46,.7)"></i>Falling</span><span><i style="background:rgba(30,107,88,.7)"></i>Rising</span><span>Saskatchewan leads at +5.8%; Ontario is weakest at −0.8%</span>';
-  else lg='<span><i style="background:rgba(44,92,143,0.20)"></i>Balanced</span><span><i style="background:rgba(176,121,31,0.42)"></i>Borderline sellers</span><span>No province is in buyers\u2019 market territory on national inventory measures</span>';
+  else if(metric==="starts") lg='<span><i style="background:rgba(160,58,46,.7)"></i>Fewer</span><span><i style="background:rgba(30,107,88,.7)"></i>More</span><span>Change in January to August starts against 2025; Canada is down 4%</span>';
+  else lg='<span><i style="background:rgba(44,92,143,0.20)"></i>Balanced</span><span><i style="background:rgba(176,121,31,0.42)"></i>Borderline sellers</span><span>No province is in buyers’ market territory on national inventory measures</span>';
   if(legend) legend.innerHTML=lg;
 }
 drawMap("price");
@@ -965,8 +968,8 @@ function pay(principal,annualPct,years){
   if(m===0)return principal/n;
   return principal*m/(1-Math.pow(1+m,-n));
 }
-function cell(k,v,d){
-  return '<div class="cell"><div class="k">'+k+'</div><div class="v">'+v+'</div><div class="d flat">'+(d||"")+'</div></div>';
+function cell(kk,v,d){
+  return '<div class="cell"><div class="k">'+kk+'</div><div class="v">'+v+'</div><div class="d flat">'+(d||"")+'</div></div>';
 }
 function runCalc(){
   var price=+document.getElementById("i-price").value||0;
